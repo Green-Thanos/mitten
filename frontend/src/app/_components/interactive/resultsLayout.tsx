@@ -8,6 +8,9 @@ import type {
   Charity,
   Visualization,
 } from '@/app/_types/resultsLayout';
+import { hotspotIcon } from '@/lib/leafletIcon';
+
+
 
 import dynamic from 'next/dynamic';
 import type { LatLngExpression } from 'leaflet';
@@ -21,6 +24,16 @@ const TileLayer = dynamic(
   () => import('react-leaflet').then((mod) => mod.TileLayer),
   { ssr: false }
 );
+
+const Marker = dynamic(
+    () => import('react-leaflet').then((mod) => mod.Marker),
+    { ssr: false }
+  );
+  
+  const Popup = dynamic(
+    () => import('react-leaflet').then((mod) => mod.Popup),
+    { ssr: false }
+  );
 
 interface LeafletMapProps {
   center?: LatLngExpression;
@@ -251,6 +264,20 @@ const ResultsLayout: React.FC<ResultsLayoutProps> = ({
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
+
+            {results.visualizations
+                .filter((v) => v.type === "pinpoints")
+                .flatMap((v) =>
+                v.data.map((point: any, index: number) => (
+                    <Marker key={index} position={[point.lat, point.lng]} icon={hotspotIcon}>
+                    <Popup>
+                        <strong>{point.label}</strong>
+                        <br />
+                        {v.metadata.title}
+                    </Popup>
+                    </Marker>
+                ))
+                )}
         </MapContainer>
       </div>
     </div>

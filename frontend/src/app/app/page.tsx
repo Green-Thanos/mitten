@@ -16,6 +16,48 @@ const Globe = dynamic(() => import("@/app/_components/interactive/globe"), {
   ssr: false
 });
 
+const MockData = {
+    id: "mock_1",
+    originalQuery: "Biodiversity hotspots in Michigan's Great Lakes wetlands",
+    category: "biodiversity",
+    summary: "Michigan's Great Lakes wetlands host diverse and unique species. Current hotspots include Saginaw Bay, St. Clair flats, and the western UP. Conservation actions have improved biodiversity in select areas, but invasive species remain a problem.",
+    sources: [
+      "Michigan Department of Natural Resources 2025 Wetlands Report",
+      "Great Lakes Biodiversity Project 2024 Findings",
+      "USGS Great Lakes Program"
+    ],
+    charities: [
+      {
+        name: "Michigan Wetlands Association",
+        url: "https://www.mi-wetlands.org",
+        description: "Protecting and restoring wetland habitats in Michigan."
+      },
+      {
+        name: "Great Lakes Conservation Fund",
+        url: "https://www.glcfund.org",
+        description: "Supporting biodiversity and resilient habitats throughout the Great Lakes region."
+      }
+    ],
+    visualizations: [
+        {
+            type: "pinpoints",
+            data: [
+                { lat: 43.6, lng: -83.9, label: "Saginaw Bay" },
+                { lat: 42.5, lng: -82.6, label: "St. Clair Flats" },
+                { lat: 46.5, lng: -90.0, label: "Western Upper Peninsula" }
+            ],
+            metadata: {
+                title: "Biodiversity Hotspots",
+                description: "Key wetland areas in Michigan with rich biodiversity.",
+                source: "Michigan Department of Natural Resources",
+                lastUpdated: "2025-09-21"
+            }
+        }
+    ],
+    shareableUrl: "https://enviducate.org/mock-result",
+    generatedAt: new Date().toISOString()
+}
+
 // Type definitions
 interface EnvironmentalResult {
   id: string;
@@ -67,32 +109,6 @@ function SearchInterface({
     "Protected areas in Michigan's state parks",
   ];
 
-const MockData = {
-        id: "mock_1",
-        originalQuery: "Biodiversity hotspots in Michigan's Great Lakes wetlands",
-        category: "biodiversity",
-        summary: "Michigan's Great Lakes wetlands host diverse and unique species. Current hotspots include Saginaw Bay, St. Clair flats, and the western UP. Conservation actions have improved biodiversity in select areas, but invasive species remain a problem.",
-        sources: [
-          "Michigan Department of Natural Resources 2025 Wetlands Report",
-          "Great Lakes Biodiversity Project 2024 Findings",
-          "USGS Great Lakes Program"
-        ],
-        charities: [
-          {
-            name: "Michigan Wetlands Association",
-            url: "https://www.mi-wetlands.org",
-            description: "Protecting and restoring wetland habitats in Michigan."
-          },
-          {
-            name: "Great Lakes Conservation Fund",
-            url: "https://www.glcfund.org",
-            description: "Supporting biodiversity and resilient habitats throughout the Great Lakes region."
-          }
-        ],
-        visualizations: [],
-        shareableUrl: "https://enviducate.org/mock-result",
-        generatedAt: new Date().toISOString()
-}
   // FastAPI call function
   const callFastAPI = async (queryData: { query: string; }) => {
     setProcessQuery({ isLoading: true, error: null });
@@ -205,7 +221,7 @@ const MockData = {
             </div>
 
             {/* Visualization Type Selector */}
-            <div className="flex items-center gap-1 px-2">
+            {/* <div className="flex items-center gap-1 px-2">
               <button
                 onClick={() => setSelectedVisualizationType("all")}
                 className={`p-2 rounded-lg transition-colors ${
@@ -238,8 +254,8 @@ const MockData = {
                 title="Key metrics"
               >
                 <Hash className="w-4 h-4" />
-              </button>
-            </div>
+              </button> 
+            </div> */}
           </div>
         </div>
 
@@ -482,9 +498,9 @@ export default function AppPage() {
       </div>
 
       {/* Floating Search Button (when in results view) */}
-      {showResults && (
+      {/* {showResults && (
         <div>hi</div>
-      )}
+      )} */}
     </div>
   );
 }
