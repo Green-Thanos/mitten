@@ -47,7 +47,7 @@ export default function PulsingCircle() {
           </defs>
           <text className="text-sm fill-white/80 instrument">
             <textPath href="#circle" startOffset="0%">
-              v0 is amazing • v0 is amazing • v0 is amazing • v0 is amazing •
+              MHacks is amazing • Mhacks is amazing • Mhacks is amazing •
             </textPath>
           </text>
         </motion.svg>

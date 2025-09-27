@@ -30,6 +30,7 @@
     "@trpc/react-query": "^11.0.0",
     "@trpc/server": "^11.0.0",
     "framer-motion": "^12.23.22",
+    "lucide-react": "^0.544.0",
     "mono": "link:geist/font/mono",
     "next": "^15.2.3",
     "next-auth": "5.0.0-beta.25",
