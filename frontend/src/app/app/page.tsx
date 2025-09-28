@@ -20,7 +20,7 @@ const MockData = {
     id: "mock_1",
     originalQuery: "Biodiversity hotspots in Michigan's Great Lakes wetlands",
     category: "biodiversity",
-    summary: "Michigan's Great Lakes wetlands host diverse and unique species. Current hotspots include Saginaw Bay, St. Clair flats, and the western UP. Conservation actions have improved biodiversity in select areas, but invasive species remain a problem.",
+    summary: "Michigan's Great Lakes wetlands host diverse and unique species. Current hotspots include Saginaw Bay, St. Clair flats, and the western UP. Conservation actions have improved biodiversity in select areas, but invasive species remain a problem. However by getting this response also means something went horribly wrong. Don't blame me blame the other guy",
     sources: [
       "Michigan Department of Natural Resources 2025 Wetlands Report",
       "Great Lakes Biodiversity Project 2024 Findings",
@@ -99,9 +99,8 @@ function SearchInterface({
 
   // Predetermined Michigan environmental queries
   const predefinedQueries = [
-    "Biodiversity hotspots in Michigan's Great Lakes wetlands",
-    "Deforestation trends in Michigan's Upper Peninsula from 2017 to 2024", 
-    "Wildfire risk areas in Michigan's Upper Peninsula",
+    "Terra thermal anomalies and active fire detection for wildfire monitoring and research", 
+    "Forest cover loss trends in Michigan's Upper Peninsula from 2000-2022",
     "E Coli Related NPDES Facilities",
     "Protected areas in Michigan and Environmental Collection Points",
     "Michigan Gas Storage Fields"
@@ -116,6 +115,16 @@ function SearchInterface({
       let response;
 
       switch(queryData.query) {
+        case "Forest cover loss trends in Michigan's Upper Peninsula from 2000-2022":
+            response = await fetch('/data/coordinates_fire.json');
+            if (!response.ok) throw new Error("Failed to load deforestation data");
+            data = await response.json();
+            break;
+        case "Terra thermal anomalies and active fire detection for wildfire monitoring and research":
+            response = await fetch('/data/coordinates_fire.json');
+            if (!response.ok) throw new Error("Failed to load wildfire data");
+            data = await response.json();
+            break;
         case "Michigan Gas Storage Fields":
             response = await fetch('/data/mockData_gasFields.json');
             if (!response.ok) throw new Error("Failed to load gas fields data");
@@ -132,7 +141,21 @@ function SearchInterface({
             data = await response.json();
             break;
         default:
-            data = MockData;
+            response = await fetch('/api/environmental', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: queryData.query }),
+              });
+      
+              if (!response.ok) {
+                // throw new Error('Failed to process environmental query');
+                data = MockData;
+                break;
+              }
+      
+              // This should be shaped like EnvironmentalResult
+              data = (await response.json()) as EnvironmentalResult;
+              
       }
   
       onResults?.(data);

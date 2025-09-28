@@ -60,15 +60,13 @@ export default async function Header() {
           </svg>
         </button>
 
-        <button className="px-6 py-2 rounded-full bg-white text-black font-normal text-xs transition-all duration-300 hover:bg-white/90 cursor-pointer h-8 flex items-center z-10">
         <Link
           href={session ? "/api/auth/signout" : "/api/auth/signin"}
-          className="px-6 py-2 rounded-full bg-white text-black font-normal text-xs transition-all duration-300 hover:bg-white/90 cursor-pointer h-8 flex items-center z-10"
+          className="px-4 py-2 rounded-full bg-white text-black font-normal text-xs transition-all duration-300 hover:bg-white/90 cursor-pointer h-8 flex items-center z-10"
         >
           {session ? "Sign out" : "Log In"}
         </Link>
 
-        </button>
       </div>
     </header>
   )

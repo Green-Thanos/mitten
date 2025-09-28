@@ -31,18 +31,17 @@ export default async function HeroContent() {
 
         {/* Description */}
         <p className="text-xs font-light text-white/70 mb-4 leading-relaxed">
-         Explore Michigan’s environment like never before with Enviducate. 
-         Dynamic insights, clear visualizations, and interactive summaries bring sustainability to 
-         life, making complex data simple and actionable.
-
-          
+         Dynamic insights, summaries, and mapping to bring sustainability to life. Limited to Michigan only for performance reasons. 
+         We tweaked out building this and I don't think it even works.
         </p>
 
         {/* Buttons */}
         <div className="flex items-center gap-4 flex-wrap">
-          <button className="px-8 py-3 rounded-full bg-transparent border border-white/30 text-white font-normal text-xs transition-all duration-200 hover:bg-white/10 hover:border-white/50 cursor-pointer">
-            About Us
-          </button>
+          <Link 
+            href="/about"
+            className="px-8 py-3 rounded-full bg-transparent border border-white/30 text-white font-normal text-xs transition-all duration-200 hover:bg-white/10 hover:border-white/50 cursor-pointer">
+              About Us
+            </Link>
           {/* <button className="px-8 py-3 rounded-full bg-white text-black font-normal text-xs transition-all duration-200 hover:bg-white/90 cursor-pointer">
             Get Started
           </button> */}

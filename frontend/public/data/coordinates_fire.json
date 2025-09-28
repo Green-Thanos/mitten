@@ -1,0 +1,387 @@
+{
+  "id": "modis_mod14a1_fire_detection_2025",
+  "originalQuery": "MODIS/061/MOD14A1 Terra thermal anomalies and active fire detection for wildfire monitoring and research",
+  "category": "fire detection",
+  "summary": "The MODIS/061/MOD14A1 dataset provides daily global fire mask composites at 1km resolution derived from Terra satellite's 4- and 11-micrometer thermal radiances. This Collection 6.1 product uses both absolute fire detection (when fire strength is sufficient) and relative background detection to account for surface temperature variability. The algorithm can detect fires as small as 100-300 m² under optimal conditions, with improved accuracy showing 1.2% global commission error compared to 2.4% in previous versions. The dataset includes fire occurrence data, detection confidence levels, Fire Radiative Power (FRP), and pixel quality indicators, making it essential for monitoring spatial and temporal fire distribution, detecting new fire frontiers, tracking wildfire frequency changes, and supporting fire management decisions worldwide.",
+  "sources": [
+    "Google Earth Engine Data Catalog - MODIS/061/MOD14A1",
+    "NASA Land Processes Distributed Active Archive Center (LP DAAC)",
+    "Giglio et al. (2016) - Collection 6 MODIS Active Fire Detection Algorithm",
+    "NASA Goddard Space Flight Center MODIS Fire Products Documentation",
+    "University of Maryland Global Land Analysis & Discovery Laboratory"
+  ],
+  "charities": [
+    {
+      "name": "Global Fire Monitoring Centre (GFMC)",
+      "url": "https://gfmc.online",
+      "description": "International coordinator of the Global Wildland Fire Network, providing fire monitoring services, research coordination, and wildland fire management expertise across 14 regional networks worldwide."
+    },
+    {
+      "name": "Fire Protection Research Foundation",
+      "url": "https://www.nfpa.org/education-and-research/research/fire-protection-research-foundation",
+      "description": "Independent nonprofit foundation planning and managing fire protection research in support of the National Fire Protection Association, advancing fire safety science and technology."
+    }
+  ],
+  "locations": [
+    {
+      "longitude": -88.77384,
+      "latitude": 45.409432,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -84.95065,
+      "latitude": 42.469784,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -86.808136,
+      "latitude": 45.10105,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -83.840939,
+      "latitude": 48.116977,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -88.182733,
+      "latitude": 46.374948,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -88.745833,
+      "latitude": 45.363693,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -83.173433,
+      "latitude": 43.408524,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -89.779961,
+      "latitude": 44.915158,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -86.724912,
+      "latitude": 47.898005,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -85.43515,
+      "latitude": 43.400441,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -85.822313,
+      "latitude": 47.171434,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -83.299429,
+      "latitude": 47.154686,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -87.083247,
+      "latitude": 42.543322,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -90.047315,
+      "latitude": 44.273799,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -87.719755,
+      "latitude": 47.710152,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -83.99617,
+      "latitude": 45.262246,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -88.154713,
+      "latitude": 44.261302,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -90.141089,
+      "latitude": 45.388683,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -85.68452,
+      "latitude": 42.139523,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -87.556008,
+      "latitude": 42.479881,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -86.976048,
+      "latitude": 43.721158,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -88.188732,
+      "latitude": 46.91294,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -89.04919,
+      "latitude": 44.859359,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -89.822247,
+      "latitude": 42.363269,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -84.551372,
+      "latitude": 47.655386,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -83.476407,
+      "latitude": 47.839569,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -86.202139,
+      "latitude": 46.672083,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -84.240681,
+      "latitude": 43.917705,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -89.696729,
+      "latitude": 46.158893,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -86.209308,
+      "latitude": 46.891051,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -89.507177,
+      "latitude": 46.283076,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -87.305859,
+      "latitude": 43.916243,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -88.778499,
+      "latitude": 44.286581,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -85.224021,
+      "latitude": 42.412014,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -89.688815,
+      "latitude": 41.791544,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -82.87404,
+      "latitude": 45.897492,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -89.515158,
+      "latitude": 46.137725,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -85.540685,
+      "latitude": 43.722889,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -85.444166,
+      "latitude": 46.859205,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -88.060793,
+      "latitude": 46.494835,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -89.71806,
+      "latitude": 45.358821,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -84.392086,
+      "latitude": 42.644369,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -84.648849,
+      "latitude": 48.115758,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -86.480261,
+      "latitude": 47.662638,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -88.303749,
+      "latitude": 44.182565,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -82.456678,
+      "latitude": 43.098222,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -86.069286,
+      "latitude": 46.312607,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -87.070891,
+      "latitude": 41.883524,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -88.958192,
+      "latitude": 45.885382,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -82.591801,
+      "latitude": 42.975844,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -84.127102,
+      "latitude": 46.434259,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -89.36914,
+      "latitude": 44.1809,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -84.470696,
+      "latitude": 42.02127,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -85.187594,
+      "latitude": 42.221763,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -89.659516,
+      "latitude": 46.616695,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -86.630214,
+      "latitude": 48.00934,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -89.157681,
+      "latitude": 46.310823,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -83.184389,
+      "latitude": 44.428736,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -83.266421,
+      "latitude": 47.781114,
+      "name": "",
+      "description": ""
+    },
+    {
+      "longitude": -83.039157,
+      "latitude": 41.624739,
+      "name": "",
+      "description": ""
+    }
+  ]
+}
