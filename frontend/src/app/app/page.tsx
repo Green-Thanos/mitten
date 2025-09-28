@@ -16,6 +16,22 @@ const Globe = dynamic(() => import("@/app/_components/interactive/globe"), {
   ssr: false
 });
 
+// helper (top of file or outside component)
+async function fetchWithTimeout(
+    url: string,
+    init: RequestInit = {},
+    timeoutMs = 15000
+  ) {
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      return await fetch(url, { ...init, signal: controller.signal });
+    } finally {
+      clearTimeout(id);
+    }
+  }
+  
+
 const MockData = {
     id: "mock_1",
     originalQuery: "Biodiversity hotspots in Michigan's Great Lakes wetlands",
@@ -141,20 +157,67 @@ function SearchInterface({
             data = await response.json();
             break;
         default:
-            response = await fetch('/api/environmental', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+            // data=MockData;
+            // console.log(queryData.query);
+            // response = await fetch(`/api/environmental`, {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ query: queryData.query }),
+            //   });
+            //   console.log(response);
+            //   if (!response.ok) {
+            //     let e: any = {};
+            //     try { e = await response.json(); } catch { e.error = await response.text(); }
+            //     const msg =
+            //       e?.detail
+            //         ? typeof e.detail === "string" ? e.detail : JSON.stringify(e.detail)
+            //         : e?.error || `Request failed with status ${response.status}`;
+            //     throw new Error(msg);
+            //   }
+      
+            //   // This should be shaped like EnvironmentalResult
+            //   data = (await response.json()) as EnvironmentalResult;
+
+            try {
+                const response = await fetchWithTimeout("/api/environmental", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ query: queryData.query }),
-              });
-      
-              if (!response.ok) {
-                // throw new Error('Failed to process environmental query');
-                data = MockData;
-                break;
-              }
-      
-              // This should be shaped like EnvironmentalResult
-              data = (await response.json()) as EnvironmentalResult;
+                // don't cache API responses
+                cache: "no-store",
+                }, 15000);
+
+                if (!response.ok) {
+                // Try to read upstream error to aid debugging
+                let e: any = {};
+                try { e = await response.json(); } catch { e.error = await response.text(); }
+                const msg =
+                    e?.detail
+                    ? (typeof e.detail === "string" ? e.detail : JSON.stringify(e.detail))
+                    : e?.error || `Request failed with status ${response.status}`;
+
+                throw new Error(msg);
+                }
+
+                // ✅ success path
+                data = (await response.json()) as EnvironmentalResult;
+
+            } catch (err) {
+                console.error("FastAPI call failed, falling back to MockData:", err);
+
+                // 👇 fallback to mock
+                data = MockData as unknown as EnvironmentalResult;
+
+                // (optional) let the user know we’re showing mock results
+                setProcessQuery((p) => ({
+                ...p,
+                error: "Live data unavailable — showing mock results.",
+                }));
+            }
+
+            onResults?.(data);
+            setProcessQuery({ isLoading: false, error: null });  // or keep the warning above if you want
+            break;
               
       }
   
