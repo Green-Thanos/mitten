@@ -8,9 +8,8 @@ import type {
   Charity,
   Visualization,
 } from '@/app/_types/resultsLayout';
-import { hotspotIcon } from '@/lib/leafletIcon';
-
-
+// import { hotspotIcon } from '@/lib/leafletIcon';
+import ShareResultsModal from '@/app/_components/interactive/resultsModal';
 
 import dynamic from 'next/dynamic';
 import type { LatLngExpression } from 'leaflet';
@@ -49,6 +48,27 @@ const ResultsLayout: React.FC<ResultsLayoutProps> = ({
   results,
   isLoading = false,
 }) => {
+    const [isClient, setIsClient] = React.useState(false);
+    const [clientHotspotIcon, setClientHotspotIcon] = React.useState<any>(null);
+
+React.useEffect(() => {
+  import('leaflet').then((L) => {
+    const icon = L.divIcon({
+      html: `<img src="/icons/hotspot.svg" style="width:32px;height:32px;" />`,
+      className: "", // remove default Leaflet classes if you want
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32],
+    });
+    setClientHotspotIcon(icon);
+  });
+}, []);
+
+React.useEffect(() => {
+  setIsClient(true);
+}, []);
+
+
   const handleShare = React.useCallback(async (url: string) => {
     if (navigator.share) {
       try {
@@ -126,7 +146,8 @@ const ResultsLayout: React.FC<ResultsLayoutProps> = ({
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 min-h-screen">
+    
+    <div id="results-container" className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 min-h-screen">
       {/* LEFT COLUMN (scrollable) */}
       <div className="bg-black/20 backdrop-blur-md border border-white/10 rounded-2xl p-6 space-y-6 overflow-y-auto max-h-[calc(100vh-3rem)]">
         {/* Summary Section */}
@@ -153,7 +174,7 @@ const ResultsLayout: React.FC<ResultsLayoutProps> = ({
           <h3 className="text-lg font-semibold text-green-300">
             Environmental Analysis
           </h3>
-          <p className="text-white/90 leading-relaxed">{results.summary}</p>
+          <p className="text-white/90 leading-relaxed">{results.summary} <br/><br/> *Note Data Points Reduced to 30-50 Most Relevant Points for Performance</p>
         </div>
 
         <div className="space-y-3">
@@ -231,25 +252,9 @@ const ResultsLayout: React.FC<ResultsLayoutProps> = ({
         <div className="space-y-4 border-t border-white/10 pt-6">
           <h3 className="text-lg font-semibold text-green-300">Share Results</h3>
           <div className="space-y-3">
-            <button
-              onClick={() => handleShare(results.shareableUrl)}
-              className="w-full flex items-center gap-3 bg-green-500/20 hover:bg-green-500/30 text-green-300 rounded-lg p-3 transition-colors group"
-            >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                viewBox="0 0 24 24"
-              >
-                <circle cx="18" cy="5" r="3" />
-                <circle cx="6" cy="12" r="3" />
-                <circle cx="18" cy="19" r="3" />
-                <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
-                <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
-              </svg>
-              <span>Share These Insights</span>
-            </button>
+          {isClient && (
+            <ShareResultsModal triggerText="Share These Insights" containerId="results-container" />
+            )}
           </div>
         </div>
       </div>
@@ -269,7 +274,7 @@ const ResultsLayout: React.FC<ResultsLayoutProps> = ({
                 .filter((v) => v.type === "pinpoints")
                 .flatMap((v) =>
                 v.data.map((point: any, index: number) => (
-                    <Marker key={index} position={[point.lat, point.lng]} icon={hotspotIcon}>
+                    <Marker key={index} position={[point.lat, point.lng]} icon={clientHotspotIcon}>
                     <Popup>
                         <strong>{point.label}</strong>
                         <br />

@@ -142,3 +142,46 @@
 .instrument {
   font-family: var(--font-instrument-serif);
 }
+
+/* Fix for map export gridlines */
+.map-export .leaflet-tile {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  filter: none !important;
+  outline: none !important;
+  border: none !important;
+}
+
+.map-export .leaflet-tile-pane {
+  filter: none !important;
+  outline: none !important;
+}
+
+.map-export .no-gridlines {
+  filter: none !important;
+  outline: none !important;
+  border: none !important;
+}
+
+/* Hide any potential grid overlays during export */
+.map-export * {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Specifically target tile images to remove any grid artifacts */
+.map-export .leaflet-tile img {
+  filter: none !important;
+  outline: none !important;
+  border: none !important;
+  image-rendering: auto !important;
+}
+
+.no-gridlines-capture .leaflet-tile,
+.no-gridlines-capture .leaflet-tile-pane {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: none !important;
+}

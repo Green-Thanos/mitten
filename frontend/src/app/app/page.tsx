@@ -1,6 +1,6 @@
 "use client";
 
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { useState, useRef, useEffect, Suspense } from "react";
 import type { Session } from "next-auth";
@@ -62,12 +62,11 @@ const MockData = {
 interface EnvironmentalResult {
   id: string;
   originalQuery: string;
-  category: "deforestation" | "biodiversity" | "wildfire";
+  category: string;
   summary: string;
   sources: string[];
   charities: Array<{ name: string; url: string; description: string }>;
   visualizations: Array<{
-    type: "pinpoints" | "heatmap" | "numbers";
     data: any;
     metadata: {
       title: string;
@@ -92,7 +91,6 @@ function SearchInterface({
 }) {
   const [query, setQuery] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedVisualizationType, setSelectedVisualizationType] = useState<"pinpoints" | "heatmap" | "numbers" | "all">("all");
   const [processQuery, setProcessQuery] = useState({
     isLoading: false,
     error: null as string | null,
@@ -104,39 +102,45 @@ function SearchInterface({
     "Biodiversity hotspots in Michigan's Great Lakes wetlands",
     "Deforestation trends in Michigan's Upper Peninsula from 2017 to 2024", 
     "Wildfire risk areas in Michigan's Upper Peninsula",
-    "Invasive species impact on Michigan lakes",
-    "Climate change effects on Michigan wildlife",
-    "Protected areas in Michigan's state parks",
+    "E Coli Related NPDES Facilities",
+    "Protected areas in Michigan and Environmental Collection Points",
+    "Michigan Gas Storage Fields"
   ];
 
-  // FastAPI call function
-  const callFastAPI = async (queryData: { query: string; }) => {
+  const callFastAPI = async (queryData: { query: string }) => {
     setProcessQuery({ isLoading: true, error: null });
     onSearchStart?.();
-    
+  
     try {
-    //   const response = await fetch('/api/environmental/process-query', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({
-    //       query: queryData.query,
-    //       category: undefined,
-    //     }),
-    //   });
+      let data: EnvironmentalResult;
+      let response;
 
-    //   if (!response.ok) {
-    //     throw new Error(`HTTP error! status: ${response.status}`);
-    //   }
-
-      const data = MockData as EnvironmentalResult;
+      switch(queryData.query) {
+        case "Michigan Gas Storage Fields":
+            response = await fetch('/data/mockData_gasFields.json');
+            if (!response.ok) throw new Error("Failed to load gas fields data");
+            data = await response.json();
+            break;
+        case "Protected areas in Michigan and Environmental Collection Points":
+            response = await fetch('/data/FCMPSamplingData.json');
+            if (!response.ok) throw new Error("Failed to load Environment collection data");
+            data = await response.json();
+            break;
+        case "E Coli Related NPDES Facilities":
+            response = await fetch('/data/EcoliRelatedNPDES.json');
+            if (!response.ok) throw new Error("Failed to load Environment collection data");
+            data = await response.json();
+            break;
+        default:
+            data = MockData;
+      }
+  
       onResults?.(data);
       setProcessQuery({ isLoading: false, error: null });
     } catch (error) {
       console.error("Query processing failed:", error);
-      setProcessQuery({ 
-        isLoading: false, 
+      setProcessQuery({
+        isLoading: false,
         error: error instanceof Error ? error.message : 'Failed to process query'
       });
     }
@@ -314,6 +318,7 @@ function SearchInterface({
 
 // Main App Component
 export default function AppPage() {
+    const router = useRouter();
   const [results, setResults] = useState<EnvironmentalResult | null>(null);
   const [isSearching, setIsSearching] = useState(false);
   const [showResults, setShowResults] = useState(false);
@@ -330,7 +335,7 @@ export default function AppPage() {
             // ✅ Check the status first
             if (!response.ok) {
               // not logged in or error
-              redirect("/"); // redirect to home
+              router.push("/"); // router.push to home
               return;
             }
     
@@ -339,7 +344,7 @@ export default function AppPage() {
     
             if (!sessionData) {
               // no session object returned
-              redirect("/");
+              router.push("/");
               return;
             }
     
@@ -347,7 +352,7 @@ export default function AppPage() {
             setSession(sessionData);
           } catch (error) {
             console.error("Auth check failed:", error);
-            redirect("/"); // redirect on error
+            router.push("/"); // router.push on error
           }
         };
 
@@ -373,7 +378,7 @@ export default function AppPage() {
 
   // Handle sign out
   const handleSignOut = () => {
-    window.location.href="/api/auth/signout";
+    router.push("/api/auth/signout");
   };
 
   // Show loading while checking auth
