@@ -21,22 +21,19 @@ MOCK_SOURCES = [
 
 MOCK_LOCATIONS = [
     {
-        "latitude": 42.331429,
-        "longitude": -83.045753,
-        "name": "Rouge River Contamination",
-        "description": "Severe industrial pollution affecting 5-mile river stretch"
+        "lat": 42.331429,
+        "lng": -83.045753,
+        "label": "Rouge River Contamination"
     },
     {
-        "latitude": 42.940762,
-        "longitude": -85.728843,
-        "name": "Kent County Superfund Site",
-        "description": "Ongoing groundwater contamination from abandoned industrial facility"
+        "lat": 42.940762,
+        "lng": -85.728843,
+        "label": "Kent County Superfund Site"
     },
     {
-        "latitude": 43.591209,
-        "longitude": -84.773506,
-        "name": "Mid-Michigan PFAS Zone",
-        "description": "Widespread PFAS contamination affecting drinking water sources"
+        "lat": 43.591209,
+        "lng": -84.773506,
+        "label": "Mid-Michigan PFAS Zone"
     },
 ]
 
@@ -72,7 +69,12 @@ async def analyze(
             "summary": summary_resp.summary,
             "sources": MOCK_SOURCES,       # could later be Gemini-powered
             "charities": charities,
-            "locations": locations,
+            "visualizations": [
+                {
+                    "type": "pinpoints",
+                    "data": locations
+                }
+            ],
         }
 
     except Exception as e:

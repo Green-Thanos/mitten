@@ -39,10 +39,9 @@ Return the response as a JSON array of objects, each with:
 Example format:
 [
     {{
-        "latitude": 42.331429,
-        "longitude": -83.045753,
-        "name": "Belle Isle Wetlands",
-        "description": "Lost 40% of native fish species since 2020 due to water quality degradation"
+        "lat": 42.331429,
+        "lng": -83.045753,
+        "label": "Belle Isle Wetlands"
     }}
 ]
 
@@ -84,52 +83,32 @@ def get_default_locations(topic: str) -> List[dict]:
     """Fallback locations if the API fails."""
     defaults = {
         "biodiversity": [
-            {"latitude": 42.331429, "longitude": -83.045753, "name": "Belle Isle Fish Habitat", 
-             "description": "40% decline in native fish species since 2020, including lake sturgeon population collapse"},
-            {"latitude": 43.591209, "longitude": -84.773506, "name": "Saginaw Bay Wetlands", 
-             "description": "Lost 70% of coastal wetland habitat due to development and water level changes"},
-            {"latitude": 42.940762, "longitude": -85.728843, "name": "Grand River Watershed", 
-             "description": "Severe mussel population decline, 5 species locally extinct since 2018"},
-            {"latitude": 44.762131, "longitude": -84.727684, "name": "Kirtland's Warbler Historic Range", 
-             "description": "Critical breeding habitat fragmentation affecting endangered warbler population"},
-            {"latitude": 42.169799, "longitude": -83.642687, "name": "River Raisin PCB Zone", 
-             "description": "Ongoing contamination causing fish mutations and population decline"}
+            {"lat": 42.331429, "lng": -83.045753, "label": "Belle Isle Fish Habitat"},
+            {"lat": 43.591209, "lng": -84.773506, "label": "Saginaw Bay Wetlands"},
+            {"lat": 42.940762, "lng": -85.728843, "label": "Grand River Watershed"},
+            {"lat": 44.762131, "lng": -84.727684, "label": "Kirtland's Warbler Historic Range"},
+            {"lat": 42.169799, "lng": -83.642687, "label": "River Raisin PCB Zone"}
         ],
         "deforestation": [
-            {"latitude": 44.314844, "longitude": -85.602364, "name": "Pere Marquette Clear-Cut", 
-             "description": "Lost 2000 acres of old-growth forest to commercial logging in 2023"},
-            {"latitude": 46.182541, "longitude": -84.353402, "name": "Upper Peninsula Mining Site", 
-             "description": "Cleared 1500 acres for new mining operations, destroying critical habitat"},
-            {"latitude": 43.591209, "longitude": -84.773506, "name": "Midland Flood Impact Zone", 
-             "description": "Severe erosion and tree loss from 2020 dam failure, 800 acres affected"},
-            {"latitude": 45.571184, "longitude": -84.733705, "name": "Cheboygan Storm Damage", 
-             "description": "Lost 3000 acres of forest to severe windstorm in 2024"},
-            {"latitude": 42.940762, "longitude": -85.728843, "name": "Grand Rapids Urban Forest Loss", 
-             "description": "Lost 30% of urban canopy to emerald ash borer and development"}
+            {"lat": 44.314844, "lng": -85.602364, "label": "Pere Marquette Clear-Cut"},
+            {"lat": 46.182541, "lng": -84.353402, "label": "Upper Peninsula Mining Site"},
+            {"lat": 43.591209, "lng": -84.773506, "label": "Midland Flood Impact Zone"},
+            {"lat": 45.571184, "lng": -84.733705, "label": "Cheboygan Storm Damage"},
+            {"lat": 42.940762, "lng": -85.728843, "label": "Grand Rapids Urban Forest Loss"}
         ],
         "wildfire": [
-            {"latitude": 44.314844, "longitude": -85.602364, "name": "Huron Forest Burn Site", 
-             "description": "1200 acres burned in 2024 summer wildfire"},
-            {"latitude": 45.571184, "longitude": -84.733705, "name": "Grayling Fire Zone", 
-             "description": "800 acres destroyed in lightning-sparked wildfire"},
-            {"latitude": 46.182541, "longitude": -84.353402, "name": "UP Peat Fire Location", 
-             "description": "Ongoing underground peat fire affecting 500 acres since 2023"},
-            {"latitude": 43.591209, "longitude": -84.773506, "name": "State Game Area Burn", 
-             "description": "400 acres of wildlife habitat destroyed by human-caused fire"},
-            {"latitude": 44.762131, "longitude": -84.727684, "name": "Au Sable River Fire", 
-             "description": "Recent riverbank wildfire damaged 600 acres of riparian habitat"}
+            {"lat": 44.314844, "lng": -85.602364, "label": "Huron Forest Burn Site"},
+            {"lat": 45.571184, "lng": -84.733705, "label": "Grayling Fire Zone"},
+            {"lat": 46.182541, "lng": -84.353402, "label": "UP Peat Fire Location"},
+            {"lat": 43.591209, "lng": -84.773506, "label": "State Game Area Burn"},
+            {"lat": 44.762131, "lng": -84.727684, "label": "Au Sable River Fire"}
         ],
         "unknown": [
-            {"latitude": 42.331429, "longitude": -83.045753, "name": "Rouge River Contamination", 
-             "description": "Severe industrial pollution affecting 5-mile river stretch"},
-            {"latitude": 42.940762, "longitude": -85.728843, "name": "Kent County Superfund Site", 
-             "description": "Ongoing groundwater contamination from abandoned industrial facility"},
-            {"latitude": 43.591209, "longitude": -84.773506, "name": "Mid-Michigan PFAS Zone", 
-             "description": "Widespread PFAS contamination affecting drinking water sources"},
-            {"latitude": 45.571184, "longitude": -84.733705, "name": "Northern Pipeline Spill", 
-             "description": "Recent oil pipeline leak affecting wetland ecosystem"},
-            {"latitude": 46.182541, "longitude": -84.353402, "name": "UP Mine Drainage", 
-             "description": "Acid mine drainage causing fish die-offs in local streams"}
+            {"lat": 42.331429, "lng": -83.045753, "label": "Rouge River Contamination"},
+            {"lat": 42.940762, "lng": -85.728843, "label": "Kent County Superfund Site"},
+            {"lat": 43.591209, "lng": -84.773506, "label": "Mid-Michigan PFAS Zone"},
+            {"lat": 45.571184, "lng": -84.733705, "label": "Northern Pipeline Spill"},
+            {"lat": 46.182541, "lng": -84.353402, "label": "UP Mine Drainage"}
         ]
     }
     return defaults.get(topic, defaults["unknown"])
