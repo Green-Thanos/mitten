@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: mitten-backend
+    env: python
+    buildCommand: |
+      curl -LsSf https://astral.sh/uv/install.sh | sh
+      source $HOME/.cargo/env
+      uv sync
+    startCommand: uv run python main.py
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GOOGLE_SEARCH_API_KEY
+        sync: false
+      - key: GOOGLE_SEARCH_ENGINE_ID
+        sync: false
+      - key: PORT
+        value: 8000
+    healthCheckPath: /health
+    plan: free

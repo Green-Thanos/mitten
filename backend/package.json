@@ -1,0 +1,19 @@
+{
+  "name": "mitten-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Mitten Environmental Education Platform",
+  "main": "main.py",
+  "scripts": {
+    "start": "uv run python main.py",
+    "build": "uv sync",
+    "dev": "uv run python main.py",
+    "lint": "./scripts/lint-fix.sh",
+    "test": "uv run pytest",
+    "format": "uv run black . && uv run isort ."
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "python": ">=3.11.0"
+  },
+  "packageManager": "uv@latest"
+}
