@@ -1,0 +1,275 @@
+{
+  "id": "mock_1",
+  "originalQuery": "Michigan Gas Storage Fields",
+  "category": "energy",
+  "summary": "Sampled gas storage field coordinates in Michigan.",
+  "sources": [
+    "Michigan Gas Storage Data 2025"
+  ],
+  "charities": [],
+  "visualizations": [
+    {
+      "type": "pinpoints",
+      "data": [
+        {
+          "lat": 45.023398292737454,
+          "lng": -84.37502172355521,
+          "label": "CENTRAL CHARLTON 1"
+        },
+        {
+          "lat": 44.046446130802025,
+          "lng": -84.71768281973486,
+          "label": "NORTH HAMILTON"
+        },
+        {
+          "lat": 43.983898795907855,
+          "lng": -84.95854426333825,
+          "label": "LINCOLN"
+        },
+        {
+          "lat": 43.90799691628289,
+          "lng": -85.12303410401775,
+          "label": "ORIENT"
+        },
+        {
+          "lat": 43.84337235797276,
+          "lng": -85.08447500858118,
+          "label": "ORIENT"
+        },
+        {
+          "lat": 43.844348025789664,
+          "lng": -85.074241003328,
+          "label": "ORIENT"
+        },
+        {
+          "lat": 43.90799691628289,
+          "lng": -85.12303410401775,
+          "label": "ORIENT"
+        },
+        {
+          "lat": 43.48928767617053,
+          "lng": -85.26408748014869,
+          "label": "SIX LAKES"
+        },
+        {
+          "lat": 43.388210940078395,
+          "lng": -84.99959501635534,
+          "label": "SIX LAKES"
+        },
+        {
+          "lat": 43.43329319408907,
+          "lng": -85.0242860405053,
+          "label": "SIX LAKES"
+        },
+        {
+          "lat": 43.510876927702654,
+          "lng": -85.2245567943905,
+          "label": "SIX LAKES"
+        },
+        {
+          "lat": 43.45731826079575,
+          "lng": -85.48215516457506,
+          "label": "WINFIELD"
+        },
+        {
+          "lat": 42.791329096175225,
+          "lng": -82.87771593171024,
+          "label": "RAY"
+        },
+        {
+          "lat": 42.67387249172837,
+          "lng": -82.58522347224914,
+          "label": "COLLIN"
+        },
+        {
+          "lat": 42.55513548383456,
+          "lng": -83.91335111214276,
+          "label": "HOWELL"
+        },
+        {
+          "lat": 42.6134263587766,
+          "lng": -83.90962869291772,
+          "label": "HOWELL"
+        },
+        {
+          "lat": 43.988278793680045,
+          "lng": -85.52837782365873,
+          "label": "LOREED"
+        },
+        {
+          "lat": 42.442054502035695,
+          "lng": -83.63573423752565,
+          "label": "LYON 29"
+        },
+        {
+          "lat": 42.40978612166543,
+          "lng": -84.93010346070588,
+          "label": "LEE 8"
+        },
+        {
+          "lat": 42.48019733399186,
+          "lng": -84.60100442232024,
+          "label": "EATON RAPIDS 36"
+        },
+        {
+          "lat": 44.81870260685602,
+          "lng": -84.96800605843143,
+          "label": "BLUE LAKE"
+        },
+        {
+          "lat": 44.77179364646487,
+          "lng": -85.09228020636368,
+          "label": "EXCELSIOR 6"
+        },
+        {
+          "lat": 44.2228565699276,
+          "lng": -85.21456010412216,
+          "label": "RIVERSIDE"
+        },
+        {
+          "lat": 44.10344413590937,
+          "lng": -84.86881639891854,
+          "label": "CRANBERRY LAKE"
+        },
+        {
+          "lat": 44.13509380806457,
+          "lng": -84.89899855711576,
+          "label": "CRANBERRY LAKE"
+        },
+        {
+          "lat": 44.191788852319156,
+          "lng": -85.00004198540864,
+          "label": "CRANBERRY LAKE"
+        },
+        {
+          "lat": 43.70675963323799,
+          "lng": -85.66201134350173,
+          "label": "NORWICH"
+        },
+        {
+          "lat": 43.407571999821215,
+          "lng": -85.67242302847558,
+          "label": "CROTON"
+        },
+        {
+          "lat": 42.997546693524,
+          "lng": -82.95776860356189,
+          "label": "CAPAC"
+        },
+        {
+          "lat": 42.780017891139885,
+          "lng": -82.74026949990197,
+          "label": "MUTTONVILLE"
+        },
+        {
+          "lat": 42.37437110773842,
+          "lng": -84.83419743286706,
+          "label": "PARTELLO-ANDERSON"
+        },
+        {
+          "lat": 44.78276690342509,
+          "lng": -85.13282549647725,
+          "label": "RAPID RIVER 35"
+        },
+        {
+          "lat": 44.04568738100053,
+          "lng": -84.96826097075683,
+          "label": "WINTERFIELD"
+        },
+        {
+          "lat": 44.100846871945315,
+          "lng": -84.97414975531359,
+          "label": "WINTERFIELD"
+        },
+        {
+          "lat": 44.097822942003006,
+          "lng": -84.98335206614053,
+          "label": "WINTERFIELD"
+        },
+        {
+          "lat": 43.722799410670966,
+          "lng": -85.03795725250012,
+          "label": "COLDWATER"
+        },
+        {
+          "lat": 43.59405092871903,
+          "lng": -85.34456493700102,
+          "label": "AUSTIN"
+        },
+        {
+          "lat": 43.306898637678096,
+          "lng": -84.875404608266,
+          "label": "NEW HAVEN"
+        },
+        {
+          "lat": 43.288426176029155,
+          "lng": -84.7327353818268,
+          "label": "NEW HAVEN"
+        },
+        {
+          "lat": 42.85530806497633,
+          "lng": -82.70825333009688,
+          "label": "WEST COLUMBUS"
+        },
+        {
+          "lat": 42.78647838593712,
+          "lng": -82.5479995275104,
+          "label": "BELLE RIVER MILLS"
+        },
+        {
+          "lat": 42.77617912853825,
+          "lng": -86.00974895218224,
+          "label": "OVERISEL"
+        },
+        {
+          "lat": 42.768559754471745,
+          "lng": -85.9483493073576,
+          "label": "OVERISEL"
+        },
+        {
+          "lat": 42.70786176396969,
+          "lng": -82.81885846540608,
+          "label": "LENOX"
+        },
+        {
+          "lat": 42.384394085531824,
+          "lng": -83.49094544181504,
+          "label": "NORTHVILLE"
+        },
+        {
+          "lat": 42.383513473507605,
+          "lng": -83.45199699214803,
+          "label": "NORTHVILLE"
+        },
+        {
+          "lat": 42.43454793807025,
+          "lng": -83.57137759371493,
+          "label": "NORTHVILLE"
+        },
+        {
+          "lat": 43.88754249318016,
+          "lng": -85.54284470028864,
+          "label": "REED CITY"
+        },
+        {
+          "lat": 42.88556788118858,
+          "lng": -82.68469439406549,
+          "label": "COLUMBUS 3"
+        },
+        {
+          "lat": 42.76665376076663,
+          "lng": -83.01810244880768,
+          "label": "WASHINGTON 10"
+        }
+      ],
+      "metadata": {
+        "title": "Gas Storage Fields",
+        "description": "50 sampled coordinates from Michigan gas storage fields.",
+        "source": "Michigan Gas Storage Data",
+        "lastUpdated": "2025-09-28T01:36:03.082Z"
+      }
+    }
+  ],
+  "shareableUrl": "https://enviducate.org/mock-result",
+  "generatedAt": "2025-09-28T01:36:03.082Z"
+}

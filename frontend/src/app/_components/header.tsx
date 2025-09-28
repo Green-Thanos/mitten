@@ -1,6 +1,13 @@
-"use client"
+import Link from "next/link";
+import { auth } from "@/server/auth";
+import { api, HydrateClient } from "@/trpc/server"; 
 
-export default function Header() {
+export default async function Header() {
+  const session = await auth();
+
+  if (session?.user) {
+    void api.post.getLatest.prefetch();
+  }
   return (
     <header className="relative z-20 flex items-center justify-between p-6">
       {/* Logo */}
@@ -19,7 +26,7 @@ export default function Header() {
 
       {/* Navigation */}
       <nav className="flex items-center space-x-2">
-        <a
+        {/* <a
           href="#"
           className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
         >
@@ -36,7 +43,13 @@ export default function Header() {
           className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
         >
           Docs
-        </a>
+        </a> */}
+
+        {session && (
+          <span className="text-white text-xs mr-2">
+            {session.user?.name}
+          </span>
+        )}
       </nav>
 
       {/* Login Button Group with Arrow */}
@@ -46,8 +59,15 @@ export default function Header() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
           </svg>
         </button>
+
         <button className="px-6 py-2 rounded-full bg-white text-black font-normal text-xs transition-all duration-300 hover:bg-white/90 cursor-pointer h-8 flex items-center z-10">
-          Login
+        <Link
+          href={session ? "/api/auth/signout" : "/api/auth/signin"}
+          className="px-6 py-2 rounded-full bg-white text-black font-normal text-xs transition-all duration-300 hover:bg-white/90 cursor-pointer h-8 flex items-center z-10"
+        >
+          {session ? "Sign out" : "Log In"}
+        </Link>
+
         </button>
       </div>
     </header>
