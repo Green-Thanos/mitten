@@ -5,8 +5,8 @@ from app.api.v1.api import api_router
 
 # Create FastAPI instance
 app = FastAPI(
-    title=settings.PROJECT_NAME,
-    description="Backend API for Enviducate Sustainability Education Platform",
+    title="Enviducate API",
+    description="Environmental Education API for Michigan with Google Earth Engine and Gemini AI",
     version="1.0.0"
 )
 
@@ -24,7 +24,7 @@ app.include_router(api_router, prefix=settings.API_V1_STR)
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to Enviducate API"}
+    return {"message": "Welcome to Enviducate API", "version": "1.0.0"}
 
 @app.get("/health")
 async def health_check():

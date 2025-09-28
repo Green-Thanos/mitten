@@ -9,3 +9,4 @@ earthengine-api>=0.1.365
 leafmap>=0.25.0
 pandas>=2.1.4
 google-generativeai>=0.3.2
+folium>=0.14.0

@@ -19,6 +19,12 @@ class Settings(BaseSettings):
     
     # API Keys
     GEMINI_API_KEY: str = "your-gemini-api-key-here"
+    GOOGLE_SEARCH_API_KEY: str = "your-google-search-api-key-here"
+    GOOGLE_SEARCH_ENGINE_ID: str = "your-search-engine-id-here"
+    
+    # Google Earth Engine
+    GEE_SERVICE_ACCOUNT_EMAIL: str = "your-service-account@project.iam.gserviceaccount.com"
+    GEE_PRIVATE_KEY_PATH: str = "path/to/your/private-key.json"
     
     # Static files
     STATIC_DIR: str = "static"
@@ -27,6 +33,7 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"
         case_sensitive = True
+        extra = "ignore"  # Ignore extra environment variables
 
 
 settings = Settings()
