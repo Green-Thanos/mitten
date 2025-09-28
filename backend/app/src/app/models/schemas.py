@@ -9,11 +9,11 @@ class CharityRecommendation(BaseModel):
     name: str
     description: str
     url: HttpUrl
-    category: Literal["biodiversity", "forestry", "wetlands", "wildfire", "education", "unknown"]
+    category: str
     scope: Literal["county", "regional", "state"]
 
 class ParseResponse(BaseModel):
-    topic: Literal["biodiversity", "deforestation", "wildfire", "unknown"]
+    topic: str
     location: str
     time_range: Optional[str] = None
     confidence: float = Field(ge=0.0, le=1.0)
@@ -23,11 +23,11 @@ class ParseResponse(BaseModel):
 class Charity(BaseModel):
     name: str
     url: HttpUrl
-    category: Literal["wetlands", "forestry", "wildfire", "biodiversity", "education"]
+    category: str
     scope: Literal["county", "state", "regional"]
 
 class SummaryRequest(BaseModel):
-    topic: Literal["biodiversity", "deforestation", "wildfire"]
+    topic: str
     location: str
     time_range: Optional[str] = None
 
