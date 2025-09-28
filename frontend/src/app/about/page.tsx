@@ -11,7 +11,9 @@ const PADDLE_COLOR = "#FFFFFF"
 const LETTER_SPACING = 1
 const WORD_SPACING = 3
 
-const PIXEL_MAP = {
+type PixelMap = Record<string, number[][]>;
+
+const PIXEL_MAP: PixelMap = {
   P: [
     [1, 1, 1, 1],
     [1, 0, 0, 1],
@@ -143,7 +145,7 @@ interface Paddle {
   isVertical: boolean
 }
 
-export function PromptingIsAllYouNeed() {
+export default function About() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const pixelsRef = useRef<Pixel[]>([])
   const ballRef = useRef<Ball>({ x: 0, y: 0, dx: 0, dy: 0, radius: 0 })
@@ -171,7 +173,9 @@ export function PromptingIsAllYouNeed() {
       const BALL_SPEED = 6 * scale
 
       pixelsRef.current = []
-      const words = ["PROMPTING", "IS ALL YOU NEED"]
+      //const words = ["PROMPTING", "IS ALL YOU NEED"]
+    
+      const words: [string, string] = ["PROMPTING", "IS ALL YOU NEED"]
 
       const calculateWordWidth = (word: string, pixelSize: number) => {
         return (
@@ -218,37 +222,45 @@ export function PromptingIsAllYouNeed() {
         if (wordIndex === 1) {
           word.split(" ").forEach((subWord) => {
             subWord.split("").forEach((letter) => {
-              const pixelMap = PIXEL_MAP[letter as keyof typeof PIXEL_MAP]
-              if (!pixelMap) return
+                
+                const rawMap = PIXEL_MAP[letter as keyof typeof PIXEL_MAP];
+                if (!rawMap) return;
+                const pixelMap: number[][] = rawMap;
 
-              for (let i = 0; i < pixelMap.length; i++) {
-                for (let j = 0; j < pixelMap[i].length; j++) {
-                  if (pixelMap[i][j]) {
-                    const x = startX + j * pixelSize
-                    const y = startY + i * pixelSize
-                    pixelsRef.current.push({ x, y, size: pixelSize, hit: false })
+                
+                for (let i = 0; i < pixelMap.length; i++) {
+                    const row = pixelMap[i] ?? [];
+                  for (let j = 0; j < row.length; j++) {
+                    if (row[j]) {
+                      const x = startX + j * pixelSize;
+                      const y = startY + i * pixelSize;
+                      pixelsRef.current.push({ x, y, size: pixelSize, hit: false });
+                    }
                   }
                 }
-              }
-              startX += (pixelMap[0].length + LETTER_SPACING) * pixelSize
+                const zeromap = pixelMap[0] ?? [];
+                startX += (zeromap.length + LETTER_SPACING) * pixelSize;
             })
             startX += WORD_SPACING * adjustedSmallPixelSize
           })
         } else {
           word.split("").forEach((letter) => {
-            const pixelMap = PIXEL_MAP[letter as keyof typeof PIXEL_MAP]
-            if (!pixelMap) return
+            const rawMap = PIXEL_MAP[letter as keyof typeof PIXEL_MAP];
+            if (!rawMap) return;
+            const pixelMap: number[][] = rawMap;
 
             for (let i = 0; i < pixelMap.length; i++) {
-              for (let j = 0; j < pixelMap[i].length; j++) {
-                if (pixelMap[i][j]) {
+                const row = pixelMap[i] ?? [];
+              for (let j = 0; j < row.length; j++) {
+                if (row[j]) {
                   const x = startX + j * pixelSize
                   const y = startY + i * pixelSize
                   pixelsRef.current.push({ x, y, size: pixelSize, hit: false })
                 }
               }
             }
-            startX += (pixelMap[0].length + LETTER_SPACING) * pixelSize
+            const zeromap = pixelMap[0] ?? [];
+            startX += (zeromap.length + LETTER_SPACING) * pixelSize
           })
         }
         startY += wordIndex === 0 ? largeTextHeight + spaceBetweenLines : 0
@@ -429,5 +441,3 @@ export function PromptingIsAllYouNeed() {
   </div>
   )
 }
-
-export default PromptingIsAllYouNeed
