@@ -14,30 +14,30 @@
 - **Type**: Web Service
 - **Environment**: Python 3.11
 
-#### Build Command
-
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh && export PATH="$HOME/.local/bin:$PATH" && uv sync
-```
-
-#### Start Command
-
-```bash
-uv run python main.py
-```
-
-#### Alternative (if uv fails)
-
-**Build Command:**
+#### Build Command (Recommended - Simple)
 
 ```bash
 pip install -r requirements.txt
 ```
 
-**Start Command:**
+#### Start Command
 
 ```bash
 python main.py
+```
+
+#### Alternative (if you want to use uv)
+
+**Build Command:**
+
+```bash
+cd app && curl -LsSf https://astral.sh/uv/install.sh | sh && export PATH="$HOME/.local/bin:$PATH" && uv sync
+```
+
+**Start Command:**
+
+```bash
+cd app && uv run python main.py
 ```
 
 ### 3. Environment Variables
