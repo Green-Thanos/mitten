@@ -271,7 +271,7 @@ React.useEffect(() => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
 
-            {clientHotspotIcon && results.visualizations
+            {clientHotspotIcon && results.visualizations?.length > 0 && results.visualizations
                 .filter((v) => v.type === "pinpoints")
                 .flatMap((v) =>
                 v.data.map((point: any, index: number) => (
@@ -279,7 +279,7 @@ React.useEffect(() => {
                     <Popup>
                         <strong>{point.label}</strong>
                         <br />
-                        {v.metadata.title}
+                        {/* {v.metadata.title} */}
                     </Popup>
                     </Marker>
                 ))
