@@ -32,10 +32,9 @@ For example:
 - For wildfire: Locations of actual fire incidents or severe burn areas
 
 Return the response as a JSON array of objects, each with:
-- latitude (between 41.696 and 45.858)
-- longitude (between -88.418 and -82.413)
-- name (location name)
-- description (specific details about what happened/is happening at this site)
+- lat (between 41.696 and 45.858)
+- lng (between -88.418 and -82.413)
+- label (descritive name of the location)
 
 Example format:
 [
