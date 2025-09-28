@@ -66,7 +66,7 @@ React.useEffect(() => {
 
 React.useEffect(() => {
   setIsClient(true);
-}, []);
+}, [results]);
 
 
   const handleShare = React.useCallback(async (url: string) => {
@@ -262,6 +262,7 @@ React.useEffect(() => {
       {/* RIGHT COLUMN – Placeholder Map */}
       <div className="bg-black/20 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden">
         <MapContainer
+          key={results.generatedAt}
           center={[43.3338, -84.8024] as [number, number]}
           zoom={8}
           style={{ height: '100%', width: '100%', minHeight: 'calc(100vh - 3rem)' }}
@@ -270,7 +271,7 @@ React.useEffect(() => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
 
-            {results.visualizations
+            {clientHotspotIcon && results.visualizations
                 .filter((v) => v.type === "pinpoints")
                 .flatMap((v) =>
                 v.data.map((point: any, index: number) => (
