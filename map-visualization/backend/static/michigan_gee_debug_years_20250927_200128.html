@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_344cf799b113536b134dc342b58ca192 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css"/>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_344cf799b113536b134dc342b58ca192" ></div>
+        
+    
+            
+        
+</body>
+<script>
+    
+    
+            var map_344cf799b113536b134dc342b58ca192 = L.map(
+                "map_344cf799b113536b134dc342b58ca192",
+                {
+                    center: [46.0, -87.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+  "drawExport": false,
+  "layersControl": true,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_344cf799b113536b134dc342b58ca192);
+
+            
+
+        
+    
+            var tile_layer_d7affce35d1f8204c28e1a88497dea26 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 24,
+  "maxNativeZoom": 24,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_d7affce35d1f8204c28e1a88497dea26.addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            L.control.fullscreen(
+                {
+  "position": "topleft",
+  "title": "Full Screen",
+  "titleCancel": "Exit Full Screen",
+  "forceSeparateButton": false,
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var options = {
+              position: "topleft",
+              draw: {},
+              edit: {},
+            }
+                // FeatureGroup is to store editable layers.
+                var drawnItems_draw_control_8d25e64501cccd3b11f54d41ca6c2e33 =
+                    new L.featureGroup().addTo(
+                        map_344cf799b113536b134dc342b58ca192
+                    );
+
+            options.edit.featureGroup = drawnItems_draw_control_8d25e64501cccd3b11f54d41ca6c2e33;
+            var draw_control_8d25e64501cccd3b11f54d41ca6c2e33 = new L.Control.Draw(
+                options
+            ).addTo( map_344cf799b113536b134dc342b58ca192 );
+            map_344cf799b113536b134dc342b58ca192.on(L.Draw.Event.CREATED, function(e) {
+                var layer = e.layer,
+                    type = e.layerType;
+                var coords = JSON.stringify(layer.toGeoJSON());
+                layer.on('click', function() {
+                    alert(coords);
+                    console.log(coords);
+                });
+                drawnItems_draw_control_8d25e64501cccd3b11f54d41ca6c2e33.addLayer(layer);
+            });
+            map_344cf799b113536b134dc342b58ca192.on('draw:created', function(e) {
+                drawnItems_draw_control_8d25e64501cccd3b11f54d41ca6c2e33.addLayer(e.layer);
+            });
+
+            
+        
+    
+
+            var geocoderOpts_geocoder_8c46f7a67cbff51dfdca9f8c940bc4b6 = {
+  "collapsed": true,
+  "position": "topleft",
+  "defaultMarkGeocode": true,
+  "zoom": 11,
+  "provider": "nominatim",
+  "providerOptions": {
+},
+};
+
+            // note: geocoder name should start with lowercase
+            var geocoderName_geocoder_8c46f7a67cbff51dfdca9f8c940bc4b6 = geocoderOpts_geocoder_8c46f7a67cbff51dfdca9f8c940bc4b6["provider"];
+
+            var customGeocoder_geocoder_8c46f7a67cbff51dfdca9f8c940bc4b6 = L.Control.Geocoder[ geocoderName_geocoder_8c46f7a67cbff51dfdca9f8c940bc4b6 ](
+                geocoderOpts_geocoder_8c46f7a67cbff51dfdca9f8c940bc4b6['providerOptions']
+            );
+            geocoderOpts_geocoder_8c46f7a67cbff51dfdca9f8c940bc4b6["geocoder"] = customGeocoder_geocoder_8c46f7a67cbff51dfdca9f8c940bc4b6;
+
+            L.Control.geocoder(
+                geocoderOpts_geocoder_8c46f7a67cbff51dfdca9f8c940bc4b6
+            ).on('markgeocode', function(e) {
+                var zoom = geocoderOpts_geocoder_8c46f7a67cbff51dfdca9f8c940bc4b6['zoom'] || map_344cf799b113536b134dc342b58ca192.getZoom();
+                map_344cf799b113536b134dc342b58ca192.setView(e.geocode.center, zoom);
+            }).addTo(map_344cf799b113536b134dc342b58ca192);
+
+        
+    
+            map_344cf799b113536b134dc342b58ca192.fitBounds(
+                [[46.0, -87.0], [46.0, -87.0]],
+                {"maxZoom": 7}
+            );
+        
+    
+            var marker_b7e19c80fd722b5a2f09ec6c6262a4c5 = L.marker(
+                [46.09977360702687, -85.8436350988048],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_687f9db25b5b3cacc6229e199aa2bebf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3dbc573fab86a858f0c3c5093c5e8f6e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a8bf529ddd57f67b419cbd24a7e0f7f9 = $(`<div id="html_a8bf529ddd57f67b419cbd24a7e0f7f9" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.0998, -85.8436</div>`)[0];
+                popup_3dbc573fab86a858f0c3c5093c5e8f6e.setContent(html_a8bf529ddd57f67b419cbd24a7e0f7f9);
+            
+        
+
+        marker_b7e19c80fd722b5a2f09ec6c6262a4c5.bindPopup(popup_3dbc573fab86a858f0c3c5093c5e8f6e)
+        ;
+
+        
+    
+    
+                marker_b7e19c80fd722b5a2f09ec6c6262a4c5.setIcon(icon_687f9db25b5b3cacc6229e199aa2bebf);
+            
+    
+            var marker_ed94a1efc650957449cefd535b7d907f = L.marker(
+                [45.988561744303624, -89.12789614154771],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_1311a709fce025754ba77afcf84f1f05 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_242cccf6687c1533b24ab0c0ff45005f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_263e2fe75a31c9569d5de2ca5d0b513d = $(`<div id="html_263e2fe75a31c9569d5de2ca5d0b513d" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.9886, -89.1279</div>`)[0];
+                popup_242cccf6687c1533b24ab0c0ff45005f.setContent(html_263e2fe75a31c9569d5de2ca5d0b513d);
+            
+        
+
+        marker_ed94a1efc650957449cefd535b7d907f.bindPopup(popup_242cccf6687c1533b24ab0c0ff45005f)
+        ;
+
+        
+    
+    
+                marker_ed94a1efc650957449cefd535b7d907f.setIcon(icon_1311a709fce025754ba77afcf84f1f05);
+            
+    
+            var marker_362e2faf8751ebd58a0ab610758a38fe = L.marker(
+                [45.28564571920639, -88.65094553302046],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_d9335087efce05f53a7ae48f0061e22f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c965e7f5623820349d640629d0fcb278 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6d3d526592a6de614d7eed1e74e787cf = $(`<div id="html_6d3d526592a6de614d7eed1e74e787cf" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.2856, -88.6509</div>`)[0];
+                popup_c965e7f5623820349d640629d0fcb278.setContent(html_6d3d526592a6de614d7eed1e74e787cf);
+            
+        
+
+        marker_362e2faf8751ebd58a0ab610758a38fe.bindPopup(popup_c965e7f5623820349d640629d0fcb278)
+        ;
+
+        
+    
+    
+                marker_362e2faf8751ebd58a0ab610758a38fe.setIcon(icon_d9335087efce05f53a7ae48f0061e22f);
+            
+    
+            var marker_38cd5a1951e75682761021e6b5577b52 = L.marker(
+                [46.55185238362545, -88.80095752799288],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_82edfc9021cff193e52e0e3f41638ad3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_99ff4fe5806d5d708c733041c35c17ec = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c999941f8ce0771db639bf3ee3983fa0 = $(`<div id="html_c999941f8ce0771db639bf3ee3983fa0" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.5519, -88.8010</div>`)[0];
+                popup_99ff4fe5806d5d708c733041c35c17ec.setContent(html_c999941f8ce0771db639bf3ee3983fa0);
+            
+        
+
+        marker_38cd5a1951e75682761021e6b5577b52.bindPopup(popup_99ff4fe5806d5d708c733041c35c17ec)
+        ;
+
+        
+    
+    
+                marker_38cd5a1951e75682761021e6b5577b52.setIcon(icon_82edfc9021cff193e52e0e3f41638ad3);
+            
+    
+            var marker_0eba3521227231e39a46cba1c06d3282 = L.marker(
+                [45.65526539910175, -88.0899428580522],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_f2671b83cf2c51b31cbe8e73e511b0dd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_47657815885c41b226655d05b6b9b955 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c6571461aa5d41885235df6a882fcaff = $(`<div id="html_c6571461aa5d41885235df6a882fcaff" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.6553, -88.0899</div>`)[0];
+                popup_47657815885c41b226655d05b6b9b955.setContent(html_c6571461aa5d41885235df6a882fcaff);
+            
+        
+
+        marker_0eba3521227231e39a46cba1c06d3282.bindPopup(popup_47657815885c41b226655d05b6b9b955)
+        ;
+
+        
+    
+    
+                marker_0eba3521227231e39a46cba1c06d3282.setIcon(icon_f2671b83cf2c51b31cbe8e73e511b0dd);
+            
+    
+            var marker_910980b1d884f7be6e8ed7a52c424c41 = L.marker(
+                [45.414174031865116, -84.28960447645854],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_8c1521abd0402a91088876377ea8840a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dadb48b6b2bc966ca1c25b0c1dc7b941 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a7592c90eeba7b1e9d5703bf37c7b625 = $(`<div id="html_a7592c90eeba7b1e9d5703bf37c7b625" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.4142, -84.2896</div>`)[0];
+                popup_dadb48b6b2bc966ca1c25b0c1dc7b941.setContent(html_a7592c90eeba7b1e9d5703bf37c7b625);
+            
+        
+
+        marker_910980b1d884f7be6e8ed7a52c424c41.bindPopup(popup_dadb48b6b2bc966ca1c25b0c1dc7b941)
+        ;
+
+        
+    
+    
+                marker_910980b1d884f7be6e8ed7a52c424c41.setIcon(icon_8c1521abd0402a91088876377ea8840a);
+            
+    
+            var marker_47aabebd497fccebc394cc92583b1a1f = L.marker(
+                [46.05506779073741, -87.20002373448386],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_38d7e75dd311d4cc2c30a00b25eebb16 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9bb4e6548939cec90fd28c2c9be12a49 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_95aae60206cfa8d9881d182157561b92 = $(`<div id="html_95aae60206cfa8d9881d182157561b92" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.0551, -87.2000</div>`)[0];
+                popup_9bb4e6548939cec90fd28c2c9be12a49.setContent(html_95aae60206cfa8d9881d182157561b92);
+            
+        
+
+        marker_47aabebd497fccebc394cc92583b1a1f.bindPopup(popup_9bb4e6548939cec90fd28c2c9be12a49)
+        ;
+
+        
+    
+    
+                marker_47aabebd497fccebc394cc92583b1a1f.setIcon(icon_38d7e75dd311d4cc2c30a00b25eebb16);
+            
+    
+            var marker_d17ae2cec8887315846ab568ef482302 = L.marker(
+                [46.85036535128794, -88.57301747064834],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_aa414504dec0a7d5b00b9a40be92c708 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_103a12101f2a15f19dc526212e819737 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_173c90e3260f1f700b685fdc2c007733 = $(`<div id="html_173c90e3260f1f700b685fdc2c007733" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.8504, -88.5730</div>`)[0];
+                popup_103a12101f2a15f19dc526212e819737.setContent(html_173c90e3260f1f700b685fdc2c007733);
+            
+        
+
+        marker_d17ae2cec8887315846ab568ef482302.bindPopup(popup_103a12101f2a15f19dc526212e819737)
+        ;
+
+        
+    
+    
+                marker_d17ae2cec8887315846ab568ef482302.setIcon(icon_aa414504dec0a7d5b00b9a40be92c708);
+            
+    
+            var marker_1f85b49b0c296a253e83e63786365ffc = L.marker(
+                [46.435963006065464, -85.35751864130046],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_2b95e9753bace986efee35e940f9979c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1dda7fa232f93471f31157c308ebbdf0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_884e6ceaedb3968576cd8756a1efa248 = $(`<div id="html_884e6ceaedb3968576cd8756a1efa248" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.4360, -85.3575</div>`)[0];
+                popup_1dda7fa232f93471f31157c308ebbdf0.setContent(html_884e6ceaedb3968576cd8756a1efa248);
+            
+        
+
+        marker_1f85b49b0c296a253e83e63786365ffc.bindPopup(popup_1dda7fa232f93471f31157c308ebbdf0)
+        ;
+
+        
+    
+    
+                marker_1f85b49b0c296a253e83e63786365ffc.setIcon(icon_2b95e9753bace986efee35e940f9979c);
+            
+    
+            var marker_e81e930bb32f90a535b3855b9ef9c3d1 = L.marker(
+                [45.5451081545947, -89.01169333934331],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_c965453e34dc00eff26f05f3cbc98593 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_35873456cf83323fc8a7c937b32c52e9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_34ab39e64e1ac9a06701d76ff6bce8bf = $(`<div id="html_34ab39e64e1ac9a06701d76ff6bce8bf" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.5451, -89.0117</div>`)[0];
+                popup_35873456cf83323fc8a7c937b32c52e9.setContent(html_34ab39e64e1ac9a06701d76ff6bce8bf);
+            
+        
+
+        marker_e81e930bb32f90a535b3855b9ef9c3d1.bindPopup(popup_35873456cf83323fc8a7c937b32c52e9)
+        ;
+
+        
+    
+    
+                marker_e81e930bb32f90a535b3855b9ef9c3d1.setIcon(icon_c965453e34dc00eff26f05f3cbc98593);
+            
+    
+            var marker_cfb4b1a200d340a5ccfcff6a2f9df634 = L.marker(
+                [45.23044197145562, -88.4204711279624],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_afcedfba2c399fa5693efc372b4a7d08 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_03ebfc89490dbb261d99deeee943cde9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d1c316afa45865d3c7eb37b0f98a36f4 = $(`<div id="html_d1c316afa45865d3c7eb37b0f98a36f4" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.2304, -88.4205</div>`)[0];
+                popup_03ebfc89490dbb261d99deeee943cde9.setContent(html_d1c316afa45865d3c7eb37b0f98a36f4);
+            
+        
+
+        marker_cfb4b1a200d340a5ccfcff6a2f9df634.bindPopup(popup_03ebfc89490dbb261d99deeee943cde9)
+        ;
+
+        
+    
+    
+                marker_cfb4b1a200d340a5ccfcff6a2f9df634.setIcon(icon_afcedfba2c399fa5693efc372b4a7d08);
+            
+    
+            var marker_ac231c680edc405628ddc1ce24a79a17 = L.marker(
+                [45.77375190266659, -87.63942816821684],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_c84986196a7f07b9c296da2c023b1bb2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_78f2b4f81880e66fcc5dbe62c1a915e9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4554517c82ebe34fa2d7d0f1d7cb7913 = $(`<div id="html_4554517c82ebe34fa2d7d0f1d7cb7913" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.7738, -87.6394</div>`)[0];
+                popup_78f2b4f81880e66fcc5dbe62c1a915e9.setContent(html_4554517c82ebe34fa2d7d0f1d7cb7913);
+            
+        
+
+        marker_ac231c680edc405628ddc1ce24a79a17.bindPopup(popup_78f2b4f81880e66fcc5dbe62c1a915e9)
+        ;
+
+        
+    
+    
+                marker_ac231c680edc405628ddc1ce24a79a17.setIcon(icon_c84986196a7f07b9c296da2c023b1bb2);
+            
+    
+            var marker_dd495321b49ea1438e4f0254918c8523 = L.marker(
+                [46.626013989818034, -85.74977707601856],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_93b2a86b7c0a8a7f4d89f09eaf558dd0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a9e8202098387dbed159c8204406329b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ef75b0e865f908e1d061b0efb23e873d = $(`<div id="html_ef75b0e865f908e1d061b0efb23e873d" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.6260, -85.7498</div>`)[0];
+                popup_a9e8202098387dbed159c8204406329b.setContent(html_ef75b0e865f908e1d061b0efb23e873d);
+            
+        
+
+        marker_dd495321b49ea1438e4f0254918c8523.bindPopup(popup_a9e8202098387dbed159c8204406329b)
+        ;
+
+        
+    
+    
+                marker_dd495321b49ea1438e4f0254918c8523.setIcon(icon_93b2a86b7c0a8a7f4d89f09eaf558dd0);
+            
+    
+            var marker_50ac8ca7442ac80afd09a6b70160ee63 = L.marker(
+                [45.78839087522216, -86.44693948137963],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_c8a4e7ca965ed2fba6097ee438a9b90d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_362691185d7869b884f6055075117069 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8d1b3d94d64694946d14600031b93d65 = $(`<div id="html_8d1b3d94d64694946d14600031b93d65" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.7884, -86.4469</div>`)[0];
+                popup_362691185d7869b884f6055075117069.setContent(html_8d1b3d94d64694946d14600031b93d65);
+            
+        
+
+        marker_50ac8ca7442ac80afd09a6b70160ee63.bindPopup(popup_362691185d7869b884f6055075117069)
+        ;
+
+        
+    
+    
+                marker_50ac8ca7442ac80afd09a6b70160ee63.setIcon(icon_c8a4e7ca965ed2fba6097ee438a9b90d);
+            
+    
+            var marker_e9408c4457a0286ee96d8b4cb22fd09b = L.marker(
+                [45.55283797285838, -87.40699218630577],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_0abcc8c741e13418b9ab1eb3d8ce8605 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5cb2a166b7493ff26a61200aa766517f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_52c56a13279a4c08c0422f814b836557 = $(`<div id="html_52c56a13279a4c08c0422f814b836557" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.5528, -87.4070</div>`)[0];
+                popup_5cb2a166b7493ff26a61200aa766517f.setContent(html_52c56a13279a4c08c0422f814b836557);
+            
+        
+
+        marker_e9408c4457a0286ee96d8b4cb22fd09b.bindPopup(popup_5cb2a166b7493ff26a61200aa766517f)
+        ;
+
+        
+    
+    
+                marker_e9408c4457a0286ee96d8b4cb22fd09b.setIcon(icon_0abcc8c741e13418b9ab1eb3d8ce8605);
+            
+    
+            var marker_e747ddb39a59cbe06819357ce6362df2 = L.marker(
+                [46.118221127668356, -86.75991342142235],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_d45a73321a949168f5f21a149872d0ed = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a2aa92c7d62ecbccd7ac3bed13a0b28a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_872f1df987f335d57d13bc6766848330 = $(`<div id="html_872f1df987f335d57d13bc6766848330" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.1182, -86.7599</div>`)[0];
+                popup_a2aa92c7d62ecbccd7ac3bed13a0b28a.setContent(html_872f1df987f335d57d13bc6766848330);
+            
+        
+
+        marker_e747ddb39a59cbe06819357ce6362df2.bindPopup(popup_a2aa92c7d62ecbccd7ac3bed13a0b28a)
+        ;
+
+        
+    
+    
+                marker_e747ddb39a59cbe06819357ce6362df2.setIcon(icon_d45a73321a949168f5f21a149872d0ed);
+            
+    
+            var marker_9dbe0d9622cf19aba02f9740736ee525 = L.marker(
+                [45.928381756023185, -89.30546188445425],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_492ddbca9a01e933e602970a8a67f450 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3fd0021c7c48d243ccee203270869d55 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_369ea464d0e2eaa7c01b46a561cbec5a = $(`<div id="html_369ea464d0e2eaa7c01b46a561cbec5a" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.9284, -89.3055</div>`)[0];
+                popup_3fd0021c7c48d243ccee203270869d55.setContent(html_369ea464d0e2eaa7c01b46a561cbec5a);
+            
+        
+
+        marker_9dbe0d9622cf19aba02f9740736ee525.bindPopup(popup_3fd0021c7c48d243ccee203270869d55)
+        ;
+
+        
+    
+    
+                marker_9dbe0d9622cf19aba02f9740736ee525.setIcon(icon_492ddbca9a01e933e602970a8a67f450);
+            
+    
+            var marker_eb7d10af56d692bc8f707fce7071f29b = L.marker(
+                [45.844801016215946, -90.33670123897919],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_3735fba7dfbcfd86d7a0d0b35933c28b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_999c87068b3694675d87b5676b3c4434 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d226cda948417ae77a778cbea346d538 = $(`<div id="html_d226cda948417ae77a778cbea346d538" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.8448, -90.3367</div>`)[0];
+                popup_999c87068b3694675d87b5676b3c4434.setContent(html_d226cda948417ae77a778cbea346d538);
+            
+        
+
+        marker_eb7d10af56d692bc8f707fce7071f29b.bindPopup(popup_999c87068b3694675d87b5676b3c4434)
+        ;
+
+        
+    
+    
+                marker_eb7d10af56d692bc8f707fce7071f29b.setIcon(icon_3735fba7dfbcfd86d7a0d0b35933c28b);
+            
+    
+            var marker_84612207454149b1caffbeb3d56953f4 = L.marker(
+                [46.50384678295871, -87.91788359570212],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_f3a942a6947c7e8a38b3ff534799fb72 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4b28758b90c8fb2e73afd4d58c4ed607 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0cc618ae69c3a9a4b874eb5c3d7c9c3d = $(`<div id="html_0cc618ae69c3a9a4b874eb5c3d7c9c3d" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.5038, -87.9179</div>`)[0];
+                popup_4b28758b90c8fb2e73afd4d58c4ed607.setContent(html_0cc618ae69c3a9a4b874eb5c3d7c9c3d);
+            
+        
+
+        marker_84612207454149b1caffbeb3d56953f4.bindPopup(popup_4b28758b90c8fb2e73afd4d58c4ed607)
+        ;
+
+        
+    
+    
+                marker_84612207454149b1caffbeb3d56953f4.setIcon(icon_f3a942a6947c7e8a38b3ff534799fb72);
+            
+    
+            var marker_46bd0c7aa15e86c8acf3f440ca0a34cc = L.marker(
+                [45.20206082588446, -89.47982092583764],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_56676982989d41fc7d61fe42a71dc359 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e623c885f0d0af47d611a1ca2098c627 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dd5777ded0ff71195c787d0f16c69a29 = $(`<div id="html_dd5777ded0ff71195c787d0f16c69a29" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.2021, -89.4798</div>`)[0];
+                popup_e623c885f0d0af47d611a1ca2098c627.setContent(html_dd5777ded0ff71195c787d0f16c69a29);
+            
+        
+
+        marker_46bd0c7aa15e86c8acf3f440ca0a34cc.bindPopup(popup_e623c885f0d0af47d611a1ca2098c627)
+        ;
+
+        
+    
+    
+                marker_46bd0c7aa15e86c8acf3f440ca0a34cc.setIcon(icon_56676982989d41fc7d61fe42a71dc359);
+            
+    
+            var marker_113dc24e2c55779291005ce6e3cf572c = L.marker(
+                [46.1533528383671, -89.70051082212026],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_9891065d5ea3223a7922c74eaf5b0ec8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_80e99a995dd57f44ec3cebdb5b29fe5b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c419068b652fb76d64a945060d4220a2 = $(`<div id="html_c419068b652fb76d64a945060d4220a2" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.1534, -89.7005</div>`)[0];
+                popup_80e99a995dd57f44ec3cebdb5b29fe5b.setContent(html_c419068b652fb76d64a945060d4220a2);
+            
+        
+
+        marker_113dc24e2c55779291005ce6e3cf572c.bindPopup(popup_80e99a995dd57f44ec3cebdb5b29fe5b)
+        ;
+
+        
+    
+    
+                marker_113dc24e2c55779291005ce6e3cf572c.setIcon(icon_9891065d5ea3223a7922c74eaf5b0ec8);
+            
+    
+            var marker_7b777791cd8f69a949a92ff842e9e889 = L.marker(
+                [45.1093595621732, -84.02325449681835],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_5b6d5f9903c9df490fb107a0281f3633 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f7493db71d4e4b469dd3b0c1417dd2fe = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d1dc120601de74aed504a8f2f2bf9eee = $(`<div id="html_d1dc120601de74aed504a8f2f2bf9eee" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.1094, -84.0233</div>`)[0];
+                popup_f7493db71d4e4b469dd3b0c1417dd2fe.setContent(html_d1dc120601de74aed504a8f2f2bf9eee);
+            
+        
+
+        marker_7b777791cd8f69a949a92ff842e9e889.bindPopup(popup_f7493db71d4e4b469dd3b0c1417dd2fe)
+        ;
+
+        
+    
+    
+                marker_7b777791cd8f69a949a92ff842e9e889.setIcon(icon_5b6d5f9903c9df490fb107a0281f3633);
+            
+    
+            var marker_a840778e2fb71a3422df5a3ff6523c75 = L.marker(
+                [45.395250461276206, -84.4352742748363],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_19322f35c4afdcf51e4378a2e400a636 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_05846d53e490c8021ab48e92c399f839 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0319d89fb0aa2edff8dabd5de6504b69 = $(`<div id="html_0319d89fb0aa2edff8dabd5de6504b69" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.3953, -84.4353</div>`)[0];
+                popup_05846d53e490c8021ab48e92c399f839.setContent(html_0319d89fb0aa2edff8dabd5de6504b69);
+            
+        
+
+        marker_a840778e2fb71a3422df5a3ff6523c75.bindPopup(popup_05846d53e490c8021ab48e92c399f839)
+        ;
+
+        
+    
+    
+                marker_a840778e2fb71a3422df5a3ff6523c75.setIcon(icon_19322f35c4afdcf51e4378a2e400a636);
+            
+    
+            var marker_fb8458465cd6f83ea827878ca976d5c8 = L.marker(
+                [45.108318874438936, -84.04965501508113],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_0e59dd17c5ae62ecc2ef08a3eec946b2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4e163a6259ccf3a7f7b65e2c868d7b07 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ccaab75b8f1342e707651a6bfc8faff5 = $(`<div id="html_ccaab75b8f1342e707651a6bfc8faff5" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.1083, -84.0497</div>`)[0];
+                popup_4e163a6259ccf3a7f7b65e2c868d7b07.setContent(html_ccaab75b8f1342e707651a6bfc8faff5);
+            
+        
+
+        marker_fb8458465cd6f83ea827878ca976d5c8.bindPopup(popup_4e163a6259ccf3a7f7b65e2c868d7b07)
+        ;
+
+        
+    
+    
+                marker_fb8458465cd6f83ea827878ca976d5c8.setIcon(icon_0e59dd17c5ae62ecc2ef08a3eec946b2);
+            
+    
+            var marker_79d1d69902fa7dcb4a0b0bb778a1c1df = L.marker(
+                [46.21207800005431, -86.71953831212448],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_46c7cd9d010e90f9973ef8d489bc9aef = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_41e5ea91784bb5a0d7ae4f102c11d062 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9603d4affbeca03e61b94674a5c8ee40 = $(`<div id="html_9603d4affbeca03e61b94674a5c8ee40" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.2121, -86.7195</div>`)[0];
+                popup_41e5ea91784bb5a0d7ae4f102c11d062.setContent(html_9603d4affbeca03e61b94674a5c8ee40);
+            
+        
+
+        marker_79d1d69902fa7dcb4a0b0bb778a1c1df.bindPopup(popup_41e5ea91784bb5a0d7ae4f102c11d062)
+        ;
+
+        
+    
+    
+                marker_79d1d69902fa7dcb4a0b0bb778a1c1df.setIcon(icon_46c7cd9d010e90f9973ef8d489bc9aef);
+            
+    
+            var marker_2a4b68d26350d2d918ccdad0a8a166f4 = L.marker(
+                [47.16456368346635, -84.26266339736507],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_d451a98414fcf6ea929855fbdb347a96 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b65152d9d6be0edc2c4bbc293f35146d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ba52c874bfb4c0ca840a5d8f99c1d823 = $(`<div id="html_ba52c874bfb4c0ca840a5d8f99c1d823" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 47.1646, -84.2627</div>`)[0];
+                popup_b65152d9d6be0edc2c4bbc293f35146d.setContent(html_ba52c874bfb4c0ca840a5d8f99c1d823);
+            
+        
+
+        marker_2a4b68d26350d2d918ccdad0a8a166f4.bindPopup(popup_b65152d9d6be0edc2c4bbc293f35146d)
+        ;
+
+        
+    
+    
+                marker_2a4b68d26350d2d918ccdad0a8a166f4.setIcon(icon_d451a98414fcf6ea929855fbdb347a96);
+            
+    
+            var marker_617514b2127568b610da20ef97487ed2 = L.marker(
+                [46.52810008323423, -87.62657094930793],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_9ac45bb97cac54c4acd7b5891d17b277 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_05b0cb3a834bd5c6edc6df85b44730b6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bec58b42dfe10c7769cdb6a1271814fc = $(`<div id="html_bec58b42dfe10c7769cdb6a1271814fc" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.5281, -87.6266</div>`)[0];
+                popup_05b0cb3a834bd5c6edc6df85b44730b6.setContent(html_bec58b42dfe10c7769cdb6a1271814fc);
+            
+        
+
+        marker_617514b2127568b610da20ef97487ed2.bindPopup(popup_05b0cb3a834bd5c6edc6df85b44730b6)
+        ;
+
+        
+    
+    
+                marker_617514b2127568b610da20ef97487ed2.setIcon(icon_9ac45bb97cac54c4acd7b5891d17b277);
+            
+    
+            var marker_7025aea125dd5b9e91b427595089c5b0 = L.marker(
+                [45.38172553285046, -84.53038497591048],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_c57d3e9110907d382861744020614a9d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7c567536ba8e724e1a82b74cd75daf4e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a81a2b9e9d1fa054796543638620c364 = $(`<div id="html_a81a2b9e9d1fa054796543638620c364" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.3817, -84.5304</div>`)[0];
+                popup_7c567536ba8e724e1a82b74cd75daf4e.setContent(html_a81a2b9e9d1fa054796543638620c364);
+            
+        
+
+        marker_7025aea125dd5b9e91b427595089c5b0.bindPopup(popup_7c567536ba8e724e1a82b74cd75daf4e)
+        ;
+
+        
+    
+    
+                marker_7025aea125dd5b9e91b427595089c5b0.setIcon(icon_c57d3e9110907d382861744020614a9d);
+            
+    
+            var marker_f42a36854f1db22e9deda69b81dd87f6 = L.marker(
+                [46.14494325701211, -86.82337055293445],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_fdea178f9b560293eba9ba723d16a06b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b3d70aa5dffa9c8c6b4d38e2533091af = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8a2de0918c868aa9b297d4c5aecece72 = $(`<div id="html_8a2de0918c868aa9b297d4c5aecece72" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.1449, -86.8234</div>`)[0];
+                popup_b3d70aa5dffa9c8c6b4d38e2533091af.setContent(html_8a2de0918c868aa9b297d4c5aecece72);
+            
+        
+
+        marker_f42a36854f1db22e9deda69b81dd87f6.bindPopup(popup_b3d70aa5dffa9c8c6b4d38e2533091af)
+        ;
+
+        
+    
+    
+                marker_f42a36854f1db22e9deda69b81dd87f6.setIcon(icon_fdea178f9b560293eba9ba723d16a06b);
+            
+    
+            var marker_99ad75faa874dbe73fef68bc787c0cdf = L.marker(
+                [46.03043275967259, -87.28672719236876],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_89fce0967490ef0b0e4fa0869b5c16b3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3cc4df577e3ce49448ed65d8c2dfe916 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_529c64e1bba06ed6a09510763ce261a4 = $(`<div id="html_529c64e1bba06ed6a09510763ce261a4" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.0304, -87.2867</div>`)[0];
+                popup_3cc4df577e3ce49448ed65d8c2dfe916.setContent(html_529c64e1bba06ed6a09510763ce261a4);
+            
+        
+
+        marker_99ad75faa874dbe73fef68bc787c0cdf.bindPopup(popup_3cc4df577e3ce49448ed65d8c2dfe916)
+        ;
+
+        
+    
+    
+                marker_99ad75faa874dbe73fef68bc787c0cdf.setIcon(icon_89fce0967490ef0b0e4fa0869b5c16b3);
+            
+    
+            var marker_e8cf80cdcaeebd0ea0e3cc81caee6159 = L.marker(
+                [45.1384535279894, -88.71904623327474],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_1cc094576af10e633a81f46ebe2c2b59 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b38283a04756580ca0e98abf9542a1ed = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_633565638ce7ccf1ef9817f5dadf66e4 = $(`<div id="html_633565638ce7ccf1ef9817f5dadf66e4" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.1385, -88.7190</div>`)[0];
+                popup_b38283a04756580ca0e98abf9542a1ed.setContent(html_633565638ce7ccf1ef9817f5dadf66e4);
+            
+        
+
+        marker_e8cf80cdcaeebd0ea0e3cc81caee6159.bindPopup(popup_b38283a04756580ca0e98abf9542a1ed)
+        ;
+
+        
+    
+    
+                marker_e8cf80cdcaeebd0ea0e3cc81caee6159.setIcon(icon_1cc094576af10e633a81f46ebe2c2b59);
+            
+    
+            var marker_384aa59963ad85027aeea43ac81c3d52 = L.marker(
+                [45.820279862198724, -86.48193002941872],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_b3f45b9dc2f4874507813aee5b530543 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4c6d4d3ff57d2f75829f39bd2895e484 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ee4d6be3651793c1cd7ff884db00e0bb = $(`<div id="html_ee4d6be3651793c1cd7ff884db00e0bb" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.8203, -86.4819</div>`)[0];
+                popup_4c6d4d3ff57d2f75829f39bd2895e484.setContent(html_ee4d6be3651793c1cd7ff884db00e0bb);
+            
+        
+
+        marker_384aa59963ad85027aeea43ac81c3d52.bindPopup(popup_4c6d4d3ff57d2f75829f39bd2895e484)
+        ;
+
+        
+    
+    
+                marker_384aa59963ad85027aeea43ac81c3d52.setIcon(icon_b3f45b9dc2f4874507813aee5b530543);
+            
+    
+            var marker_c3d3d9aec6e88842e94c1c4c152ce0be = L.marker(
+                [45.777797461774654, -89.81708107823634],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_16eadff188fc84ee84a6582d9bcee962 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6608ac6d4f07e922cbda75799287da18 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8d934297b551f93d436f318b1e1fc654 = $(`<div id="html_8d934297b551f93d436f318b1e1fc654" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 45.7778, -89.8171</div>`)[0];
+                popup_6608ac6d4f07e922cbda75799287da18.setContent(html_8d934297b551f93d436f318b1e1fc654);
+            
+        
+
+        marker_c3d3d9aec6e88842e94c1c4c152ce0be.bindPopup(popup_6608ac6d4f07e922cbda75799287da18)
+        ;
+
+        
+    
+    
+                marker_c3d3d9aec6e88842e94c1c4c152ce0be.setIcon(icon_16eadff188fc84ee84a6582d9bcee962);
+            
+    
+            var marker_cfd16ad0adc6237e39089585110ae027 = L.marker(
+                [46.17109902025477, -87.44815484961033],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_f8ee4c45e92d014e84812607f2c9eff9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6366b23d926ddc6fe40a973e2d1aad42 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e91a9ec0decb935802044e2d4b1c45e3 = $(`<div id="html_e91a9ec0decb935802044e2d4b1c45e3" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.1711, -87.4482</div>`)[0];
+                popup_6366b23d926ddc6fe40a973e2d1aad42.setContent(html_e91a9ec0decb935802044e2d4b1c45e3);
+            
+        
+
+        marker_cfd16ad0adc6237e39089585110ae027.bindPopup(popup_6366b23d926ddc6fe40a973e2d1aad42)
+        ;
+
+        
+    
+    
+                marker_cfd16ad0adc6237e39089585110ae027.setIcon(icon_f8ee4c45e92d014e84812607f2c9eff9);
+            
+    
+            var marker_84fb93feb8110350a799cca1a24aece1 = L.marker(
+                [46.390406910287616, -84.07124278979819],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_188b6d25129afdf6685f2e477913b526 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8b11a6f22a2209d98cb751b124a9a426 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5dc7f28b836e0a525f9e4792556912c1 = $(`<div id="html_5dc7f28b836e0a525f9e4792556912c1" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.3904, -84.0712</div>`)[0];
+                popup_8b11a6f22a2209d98cb751b124a9a426.setContent(html_5dc7f28b836e0a525f9e4792556912c1);
+            
+        
+
+        marker_84fb93feb8110350a799cca1a24aece1.bindPopup(popup_8b11a6f22a2209d98cb751b124a9a426)
+        ;
+
+        
+    
+    
+                marker_84fb93feb8110350a799cca1a24aece1.setIcon(icon_188b6d25129afdf6685f2e477913b526);
+            
+    
+            var marker_7faadcac123df148dd856806237b7d62 = L.marker(
+                [46.05845311321798, -88.44156837085566],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_da0133f04647bcfc20bc7c581865afc6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cc92515eb091d0103e928d59bcd9de62 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a0ffac6c860657ace0c19ddd20374063 = $(`<div id="html_a0ffac6c860657ace0c19ddd20374063" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.0585, -88.4416</div>`)[0];
+                popup_cc92515eb091d0103e928d59bcd9de62.setContent(html_a0ffac6c860657ace0c19ddd20374063);
+            
+        
+
+        marker_7faadcac123df148dd856806237b7d62.bindPopup(popup_cc92515eb091d0103e928d59bcd9de62)
+        ;
+
+        
+    
+    
+                marker_7faadcac123df148dd856806237b7d62.setIcon(icon_da0133f04647bcfc20bc7c581865afc6);
+            
+    
+            var marker_6b35464871108aaf929fc0b715ddae71 = L.marker(
+                [46.51610985182901, -88.67085132271264],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_06e90b36fe8ffb37c2e6d8b05d158758 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4325c466695040e51e2884574a548594 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_53c807977cd06d3359462c926cbc2c43 = $(`<div id="html_53c807977cd06d3359462c926cbc2c43" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.5161, -88.6709</div>`)[0];
+                popup_4325c466695040e51e2884574a548594.setContent(html_53c807977cd06d3359462c926cbc2c43);
+            
+        
+
+        marker_6b35464871108aaf929fc0b715ddae71.bindPopup(popup_4325c466695040e51e2884574a548594)
+        ;
+
+        
+    
+    
+                marker_6b35464871108aaf929fc0b715ddae71.setIcon(icon_06e90b36fe8ffb37c2e6d8b05d158758);
+            
+    
+            var marker_03c2b0ef013d03bc368e9035345a49ad = L.marker(
+                [46.26980110610019, -87.33808782552057],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_54c0d6f4a148953911ac72aeeed59b66 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_389a972cb49d00b93f1722eba25f25c9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d7d26d58e67506541849f9ab8963e357 = $(`<div id="html_d7d26d58e67506541849f9ab8963e357" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.2698, -87.3381</div>`)[0];
+                popup_389a972cb49d00b93f1722eba25f25c9.setContent(html_d7d26d58e67506541849f9ab8963e357);
+            
+        
+
+        marker_03c2b0ef013d03bc368e9035345a49ad.bindPopup(popup_389a972cb49d00b93f1722eba25f25c9)
+        ;
+
+        
+    
+    
+                marker_03c2b0ef013d03bc368e9035345a49ad.setIcon(icon_54c0d6f4a148953911ac72aeeed59b66);
+            
+    
+            var marker_c0cd53e3ad1834719b3fcc4ba5ba4e0f = L.marker(
+                [46.239710997370445, -88.05656555851301],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_463039412ff6668c1f09bc060ffbd41c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6db32bf9413c879081a2e903426a8293 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_099d63adaa3d737e023d176f3c45a629 = $(`<div id="html_099d63adaa3d737e023d176f3c45a629" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.2397, -88.0566</div>`)[0];
+                popup_6db32bf9413c879081a2e903426a8293.setContent(html_099d63adaa3d737e023d176f3c45a629);
+            
+        
+
+        marker_c0cd53e3ad1834719b3fcc4ba5ba4e0f.bindPopup(popup_6db32bf9413c879081a2e903426a8293)
+        ;
+
+        
+    
+    
+                marker_c0cd53e3ad1834719b3fcc4ba5ba4e0f.setIcon(icon_463039412ff6668c1f09bc060ffbd41c);
+            
+    
+            var marker_1792ed7244ee7301b13c6b19edbcaaa1 = L.marker(
+                [46.383475166948315, -90.35137731706465],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_b61fe8df32382f7c2be93ef3e9d80423 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4b64ee6a10e04f9bcc69ec1cdc3f4a6c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ea1648eacbbd6a491bdf6838420a4649 = $(`<div id="html_ea1648eacbbd6a491bdf6838420a4649" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.3835, -90.3514</div>`)[0];
+                popup_4b64ee6a10e04f9bcc69ec1cdc3f4a6c.setContent(html_ea1648eacbbd6a491bdf6838420a4649);
+            
+        
+
+        marker_1792ed7244ee7301b13c6b19edbcaaa1.bindPopup(popup_4b64ee6a10e04f9bcc69ec1cdc3f4a6c)
+        ;
+
+        
+    
+    
+                marker_1792ed7244ee7301b13c6b19edbcaaa1.setIcon(icon_b61fe8df32382f7c2be93ef3e9d80423);
+            
+    
+            var marker_d2402a621491167b7ea2d8f31d88fcbe = L.marker(
+                [46.727767306235414, -85.20107711369555],
+                {
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var icon_b58d3bd907aeabf14798ecbeba14d6e0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "yellow",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_490e610d9f93750a549f0298e88c4337 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7db309279c98807313886f97361f9239 = $(`<div id="html_7db309279c98807313886f97361f9239" style="width: 100.0%; height: 100.0%;"><b>Forest Loss</b><br>Year: 2001<br>Period: Early (2001-2009)<br>Raw Value: 1<br>Coordinates: 46.7278, -85.2011</div>`)[0];
+                popup_490e610d9f93750a549f0298e88c4337.setContent(html_7db309279c98807313886f97361f9239);
+            
+        
+
+        marker_d2402a621491167b7ea2d8f31d88fcbe.bindPopup(popup_490e610d9f93750a549f0298e88c4337)
+        ;
+
+        
+    
+    
+                marker_d2402a621491167b7ea2d8f31d88fcbe.setIcon(icon_b58d3bd907aeabf14798ecbeba14d6e0);
+            
+    
+            var heat_map_5d4e441eb35b4f2ccaa865dcb2a5c42c = L.heatLayer(
+                [[46.09977360702687, -85.8436350988048], [45.988561744303624, -89.12789614154771], [45.28564571920639, -88.65094553302046], [46.55185238362545, -88.80095752799288], [45.65526539910175, -88.0899428580522], [45.414174031865116, -84.28960447645854], [46.05506779073741, -87.20002373448386], [46.85036535128794, -88.57301747064834], [46.435963006065464, -85.35751864130046], [45.5451081545947, -89.01169333934331], [45.23044197145562, -88.4204711279624], [45.77375190266659, -87.63942816821684], [46.626013989818034, -85.74977707601856], [45.78839087522216, -86.44693948137963], [45.55283797285838, -87.40699218630577], [46.118221127668356, -86.75991342142235], [45.928381756023185, -89.30546188445425], [45.844801016215946, -90.33670123897919], [46.50384678295871, -87.91788359570212], [45.20206082588446, -89.47982092583764], [46.1533528383671, -89.70051082212026], [45.1093595621732, -84.02325449681835], [45.395250461276206, -84.4352742748363], [45.108318874438936, -84.04965501508113], [46.21207800005431, -86.71953831212448], [47.16456368346635, -84.26266339736507], [46.52810008323423, -87.62657094930793], [45.38172553285046, -84.53038497591048], [46.14494325701211, -86.82337055293445], [46.03043275967259, -87.28672719236876], [45.1384535279894, -88.71904623327474], [45.820279862198724, -86.48193002941872], [45.777797461774654, -89.81708107823634], [46.17109902025477, -87.44815484961033], [46.390406910287616, -84.07124278979819], [46.05845311321798, -88.44156837085566], [46.51610985182901, -88.67085132271264], [46.26980110610019, -87.33808782552057], [46.239710997370445, -88.05656555851301], [46.383475166948315, -90.35137731706465], [46.727767306235414, -85.20107711369555]],
+                {
+  "minOpacity": 0.5,
+  "maxZoom": 18,
+  "radius": 25,
+  "blur": 15,
+  "gradient": {
+  0.2: "blue",
+  0.4: "lime",
+  0.6: "orange",
+  1: "red",
+},
+}
+            );
+        
+    
+            heat_map_5d4e441eb35b4f2ccaa865dcb2a5c42c.addTo(map_344cf799b113536b134dc342b58ca192);
+        
+    
+            var layer_control_c352cd0c7b95ff34481ed045425b0d82_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_d7affce35d1f8204c28e1a88497dea26,
+                },
+                overlays :  {
+                    "macro_element_5d4e441eb35b4f2ccaa865dcb2a5c42c" : heat_map_5d4e441eb35b4f2ccaa865dcb2a5c42c,
+                },
+            };
+            let layer_control_c352cd0c7b95ff34481ed045425b0d82 = L.control.layers(
+                layer_control_c352cd0c7b95ff34481ed045425b0d82_layers.base_layers,
+                layer_control_c352cd0c7b95ff34481ed045425b0d82_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_344cf799b113536b134dc342b58ca192);
+
+        
+</script>
+</html>

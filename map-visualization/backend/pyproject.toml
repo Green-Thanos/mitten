@@ -1,0 +1,15 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "earthengine-api>=1.6.9",
+    "fastapi>=0.117.1",
+    "folium>=0.20.0",
+    "leafmap>=0.52.4",
+    "plotly>=6.3.0",
+    "pydeck>=0.9.1",
+    "uvicorn>=0.37.0",
+]
