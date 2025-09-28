@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import List, Tuple, Optional
 import google.generativeai as genai
+from app.core.config import settings
 import os
 import json
 from datetime import datetime
@@ -50,8 +51,8 @@ Ensure all coordinates are within Michigan's boundaries and are precise to 6 dec
 def get_locations_for_topic(topic: str) -> List[dict]:
     """Get coordinates and descriptions for environmental issue locations."""
     # Initialize Gemini
-    genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-    model = genai.GenerativeModel("gemini-pro")
+    genai.configure(api_key=settings.GEMINI_API_KEY)
+    model = genai.GenerativeModel(settings.GEMINI_MODEL)
     
     try:
         # Generate prompt with specific topic
@@ -65,8 +66,8 @@ def get_locations_for_topic(topic: str) -> List[dict]:
         # Validate coordinates are within Michigan
         validated_locations = []
         for loc in locations:
-            lat = float(loc["latitude"])
-            lng = float(loc["longitude"])
+            lat = float(loc["lat"])
+            lng = float(loc["lng"])
             
             if (MI_BOUNDS["south"] <= lat <= MI_BOUNDS["north"] and 
                 MI_BOUNDS["west"] <= lng <= MI_BOUNDS["east"]):
