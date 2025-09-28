@@ -1,0 +1,289 @@
+{
+  "id": "mock_1759026211797",
+  "originalQuery": "FCMPSamplingData 8481043040966580363",
+  "category": "environmental",
+  "summary": "Geospatial data containing 30563 coordinate points representing environmental monitoring points in Michigan. This dataset provides valuable insights into the distribution and characteristics of environmental monitoring points across the state.",
+  "sources": [
+    "Michigan Environmental Data 2025",
+    "Geospatial Analysis"
+  ],
+  "charities": [
+    {
+      "name": "Michigan Environmental Council",
+      "url": "https://www.environmentalcouncil.org",
+      "description": "Environmental protection in Michigan"
+    },
+    {
+      "name": "The Nature Conservancy Michigan",
+      "url": "https://www.nature.org/michigan",
+      "description": "Conservation and environmental protection"
+    }
+  ],
+  "visualizations": [
+    {
+      "type": "pinpoints",
+      "data": [
+        {
+          "lat": 46.5937995900024,
+          "lng": -88.1420898400018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 44.6926002500026,
+          "lng": -85.7121887200017,
+          "label": "Unknown"
+        },
+        {
+          "lat": 43.1877784700027,
+          "lng": -86.2048034700017,
+          "label": "Unknown"
+        },
+        {
+          "lat": 45.9975509600027,
+          "lng": -83.9952087400016,
+          "label": "Unknown"
+        },
+        {
+          "lat": 46.3219718900024,
+          "lng": -89.9102554300019,
+          "label": "Unknown"
+        },
+        {
+          "lat": 42.5974502600029,
+          "lng": -82.8755722000016,
+          "label": "Unknown"
+        },
+        {
+          "lat": 46.5209503200025,
+          "lng": -87.6728744500017,
+          "label": "Unknown"
+        },
+        {
+          "lat": 42.2238616900029,
+          "lng": -83.1329193100016,
+          "label": "Unknown"
+        },
+        {
+          "lat": 46.2570991500025,
+          "lng": -87.3753967300018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 42.9601402300027,
+          "lng": -85.3303680400017,
+          "label": "Unknown"
+        },
+        {
+          "lat": 46.0778999300025,
+          "lng": -88.4279403700018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 42.9728202800027,
+          "lng": -85.6748199500018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 46.0597190900025,
+          "lng": -88.7797164900018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 44.8016815200028,
+          "lng": -83.5590362500016,
+          "label": "Unknown"
+        },
+        {
+          "lat": 42.2296104400028,
+          "lng": -83.6067733800016,
+          "label": "Unknown"
+        },
+        {
+          "lat": 42.2677116400028,
+          "lng": -85.0561599700017,
+          "label": "Unknown"
+        },
+        {
+          "lat": 42.6453514100027,
+          "lng": -86.1941986100017,
+          "label": "Unknown"
+        },
+        {
+          "lat": 42.2788887000028,
+          "lng": -85.4705505400018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 42.4561157200028,
+          "lng": -85.6675033600018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 45.2666702300027,
+          "lng": -85.1333007800016,
+          "label": "Unknown"
+        },
+        {
+          "lat": 45.3133010900027,
+          "lng": -83.4669036900016,
+          "label": "Unknown"
+        },
+        {
+          "lat": 44.0964012100028,
+          "lng": -82.9236984300016,
+          "label": "Unknown"
+        },
+        {
+          "lat": 43.6694603000027,
+          "lng": -83.8545379600016,
+          "label": "Unknown"
+        },
+        {
+          "lat": 45.0594863900027,
+          "lng": -83.4187774700016,
+          "label": "Unknown"
+        },
+        {
+          "lat": 46.5332794200025,
+          "lng": -88.0862731900018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 45.5634117100025,
+          "lng": -87.1798629800017,
+          "label": "Unknown"
+        },
+        {
+          "lat": 44.2494506800027,
+          "lng": -86.3446807900018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 42.3937988300027,
+          "lng": -86.3009033200018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 45.9047660800026,
+          "lng": -86.3243866000018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 42.5600814800029,
+          "lng": -82.8322219800016,
+          "label": "Unknown"
+        },
+        {
+          "lat": 46.8469810500025,
+          "lng": -88.2588119500018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 46.5551414500026,
+          "lng": -85.0292434700017,
+          "label": "Unknown"
+        },
+        {
+          "lat": 42.6806755100029,
+          "lng": -83.3572921800016,
+          "label": "Unknown"
+        },
+        {
+          "lat": 46.0319709800026,
+          "lng": -86.1235199000017,
+          "label": "Unknown"
+        },
+        {
+          "lat": 46.1763801600025,
+          "lng": -88.2149810800018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 43.2315483100027,
+          "lng": -86.2987899800018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 46.8741684000024,
+          "lng": -89.3248291000018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 43.9398918200027,
+          "lng": -86.4460601800018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 43.4334487900028,
+          "lng": -84.9055404700017,
+          "label": "Unknown"
+        },
+        {
+          "lat": 42.2534904500028,
+          "lng": -85.5737762500018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 42.9500198400027,
+          "lng": -85.6036224400018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 42.4567985500028,
+          "lng": -83.3059692400016,
+          "label": "Unknown"
+        },
+        {
+          "lat": 42.3418922400028,
+          "lng": -83.3491668700016,
+          "label": "Unknown"
+        },
+        {
+          "lat": 43.1966705300028,
+          "lng": -84.1144027700017,
+          "label": "Unknown"
+        },
+        {
+          "lat": 46.3332595800025,
+          "lng": -87.3390502900018,
+          "label": "Unknown"
+        },
+        {
+          "lat": 42.0517540000028,
+          "lng": -85.1826019300017,
+          "label": "Unknown"
+        },
+        {
+          "lat": 46.4486389200026,
+          "lng": -85.2514038100016,
+          "label": "Unknown"
+        },
+        {
+          "lat": 45.0984382600028,
+          "lng": -83.5094833400016,
+          "label": "Unknown"
+        },
+        {
+          "lat": 43.9498405500027,
+          "lng": -85.4551010100017,
+          "label": "Unknown"
+        },
+        {
+          "lat": 45.5348205600026,
+          "lng": -84.7771911600016,
+          "label": "Unknown"
+        }
+      ],
+      "metadata": {
+        "title": "FCMPSamplingData 8481043040966580363",
+        "description": "Geospatial data containing 30563 coordinate points representing environmental monitoring points in Michigan. This dataset provides valuable insights into the distribution and characteristics of environmental monitoring points across the state.",
+        "source": "Michigan Environmental Data",
+        "lastUpdated": "2025-09-28T02:23:31.797Z",
+        "totalPoints": 30563,
+        "sampledPoints": 50
+      }
+    }
+  ],
+  "shareableUrl": "https://enviducate.org/mock-result-1759026211797",
+  "generatedAt": "2025-09-28T02:23:31.797Z"
+}

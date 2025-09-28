@@ -1,0 +1,126 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "FieldName": "Detroit Gas Storage",
+        "Capacity": "5000000",
+        "Type": "Underground Storage"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-83.0458, 42.3314]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "FieldName": "Grand Rapids Storage",
+        "Capacity": "3000000",
+        "Type": "Underground Storage"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-85.6702, 42.9634]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "FieldName": "Lansing Storage Field",
+        "Capacity": "2000000",
+        "Type": "Underground Storage"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.5555, 42.7325]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "FieldName": "Flint Storage Area",
+        "Capacity": "1500000",
+        "Type": "Underground Storage"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-83.6875, 43.0125]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "FieldName": "Ann Arbor Storage",
+        "Capacity": "1000000",
+        "Type": "Underground Storage"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-83.7430, 42.2808]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "FieldName": "Kalamazoo Storage",
+        "Capacity": "800000",
+        "Type": "Underground Storage"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-85.5872, 42.2917]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "FieldName": "Saginaw Storage",
+        "Capacity": "1200000",
+        "Type": "Underground Storage"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-83.9508, 43.4195]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "FieldName": "Bay City Storage",
+        "Capacity": "900000",
+        "Type": "Underground Storage"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-83.8889, 43.5945]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "FieldName": "Jackson Storage",
+        "Capacity": "600000",
+        "Type": "Underground Storage"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.4014, 42.2459]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "FieldName": "Battle Creek Storage",
+        "Capacity": "700000",
+        "Type": "Underground Storage"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-85.1917, 42.3212]
+      }
+    }
+  ]
+}
+

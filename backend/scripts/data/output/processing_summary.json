@@ -1,0 +1,70 @@
+{
+  "processing_summary": {
+    "timestamp": "2025-09-28T02:23:00Z",
+    "total_input_files": 4,
+    "successfully_processed": 3,
+    "failed_files": 1,
+    "success_rate": "75%"
+  },
+  "processed_files": [
+    {
+      "filename": "E_coli_Related_NPDES_Facilities_2647408700539461995 (1)_processed.json",
+      "original_file": "E_coli_Related_NPDES_Facilities_2647408700539461995 (1).geojson",
+      "category": "environmental",
+      "description": "E. coli related NPDES facilities monitoring data",
+      "file_size": "7.6 KB",
+      "status": "success"
+    },
+    {
+      "filename": "FCMPSamplingData_8481043040966580363_processed.json",
+      "original_file": "FCMPSamplingData_8481043040966580363.geojson",
+      "category": "environmental", 
+      "description": "FCM sampling data for water quality monitoring",
+      "file_size": "7.6 KB",
+      "status": "success"
+    },
+    {
+      "filename": "sample_michigan_data_processed.json",
+      "original_file": "sample_michigan_data.geojson",
+      "category": "environmental",
+      "description": "Sample Michigan gas storage facilities data",
+      "file_size": "2.1 KB",
+      "status": "success"
+    },
+    {
+      "filename": "sample_output.json",
+      "original_file": "sample_michigan_data.geojson",
+      "category": "environmental",
+      "description": "Previous test output from sample data",
+      "file_size": "2.1 KB",
+      "status": "success"
+    }
+  ],
+  "failed_files": [
+    {
+      "filename": "MPARTComplianceMonitoring_4460104107363894993.geojson",
+      "error": "Cannot read properties of null (reading 'type')",
+      "reason": "Geometry data is null in the GeoJSON file",
+      "status": "failed"
+    }
+  ],
+  "output_format": {
+    "type": "Enviducate MockData",
+    "features": [
+      "AI-generated environmental summaries",
+      "50 sampled coordinate points for visualization",
+      "Category classification (environmental, energy, water, etc.)",
+      "Relevant charities for user engagement",
+      "Metadata for frontend integration",
+      "Shareable URLs for results"
+    ]
+  },
+  "next_steps": [
+    "Integrate processed files with Enviducate frontend",
+    "Use coordinate data for map visualizations",
+    "Display environmental summaries in educational content",
+    "Connect users with relevant charities",
+    "Enable data sharing through generated URLs"
+  ]
+}
+

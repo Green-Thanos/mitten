@@ -1,0 +1,64 @@
+{
+  "id": "mock_1759026024579",
+  "originalQuery": "Sample Michigan Data",
+  "category": "environmental",
+  "summary": "Geospatial data containing 5 coordinate points representing environmental monitoring points in Michigan. This dataset provides valuable insights into the distribution and characteristics of environmental monitoring points across the state.",
+  "sources": [
+    "Michigan Environmental Data 2025",
+    "Geospatial Analysis"
+  ],
+  "charities": [
+    {
+      "name": "Michigan Environmental Council",
+      "url": "https://www.environmentalcouncil.org",
+      "description": "Environmental protection in Michigan"
+    },
+    {
+      "name": "The Nature Conservancy Michigan",
+      "url": "https://www.nature.org/michigan",
+      "description": "Conservation and environmental protection"
+    }
+  ],
+  "visualizations": [
+    {
+      "type": "pinpoints",
+      "data": [
+        {
+          "lat": 42.3314,
+          "lng": -83.0458,
+          "label": "Detroit Gas Storage"
+        },
+        {
+          "lat": 42.9634,
+          "lng": -85.6702,
+          "label": "Grand Rapids Storage"
+        },
+        {
+          "lat": 42.7325,
+          "lng": -84.5555,
+          "label": "Lansing Storage Field"
+        },
+        {
+          "lat": 43.0125,
+          "lng": -83.6875,
+          "label": "Flint Storage Area"
+        },
+        {
+          "lat": 42.2808,
+          "lng": -83.743,
+          "label": "Ann Arbor Storage"
+        }
+      ],
+      "metadata": {
+        "title": "Sample Michigan Data",
+        "description": "Geospatial data containing 5 coordinate points representing environmental monitoring points in Michigan. This dataset provides valuable insights into the distribution and characteristics of environmental monitoring points across the state.",
+        "source": "Michigan Environmental Data",
+        "lastUpdated": "2025-09-28T02:20:24.579Z",
+        "totalPoints": 5,
+        "sampledPoints": 5
+      }
+    }
+  ],
+  "shareableUrl": "https://enviducate.org/mock-result-1759026024583",
+  "generatedAt": "2025-09-28T02:20:24.583Z"
+}

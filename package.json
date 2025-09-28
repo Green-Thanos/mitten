@@ -1,0 +1,29 @@
+{
+  "name": "mitten-project",
+  "version": "1.0.0",
+  "description": "Environmental Education Platform - Mitten",
+  "private": true,
+  "scripts": {
+    "lint": "./scripts/lint-all.sh",
+    "lint:frontend": "./scripts/lint-all.sh --frontend-only",
+    "lint:backend": "./scripts/lint-all.sh --backend-only",
+    "lint:check": "./scripts/lint-check-all.sh",
+    "lint:strict": "./scripts/lint-strict-all.sh",
+    "setup": "./scripts/setup.sh",
+    "dev": "concurrently \"cd frontend && pnpm dev\" \"cd backend && uv run python main.py\"",
+    "build": "cd frontend && pnpm build",
+    "start": "cd frontend && pnpm start",
+    "test": "cd frontend && pnpm test && cd ../backend && uv run pytest",
+    "clean": "./scripts/clean.sh",
+    "format": "./scripts/format-all.sh"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@10.15.1"
+}
+

@@ -1,0 +1,117 @@
+{
+  "geojson_processing": {
+    "default_sample_size": 50,
+    "max_sample_size": 1000,
+    "supported_formats": [".geojson", ".json"],
+    "output_format": "enviducate_mockdata",
+    "gemini_enabled": true,
+    "fallback_analysis": true
+  },
+  "categories": {
+    "energy": {
+      "keywords": ["gas", "energy", "oil", "fuel", "power", "electricity"],
+      "charities": [
+        {
+          "name": "Michigan Environmental Council",
+          "url": "https://www.environmentalcouncil.org",
+          "description": "Advocating for clean energy in Michigan"
+        },
+        {
+          "name": "Sierra Club Michigan",
+          "url": "https://www.sierraclub.org/michigan",
+          "description": "Environmental protection and clean energy advocacy"
+        }
+      ]
+    },
+    "water": {
+      "keywords": ["water", "lake", "river", "stream", "wetland", "aquatic"],
+      "charities": [
+        {
+          "name": "Great Lakes Protection Fund",
+          "url": "https://www.glpf.org",
+          "description": "Protecting the Great Lakes ecosystem"
+        },
+        {
+          "name": "Michigan Environmental Council",
+          "url": "https://www.environmentalcouncil.org",
+          "description": "Water quality protection in Michigan"
+        }
+      ]
+    },
+    "forest": {
+      "keywords": ["forest", "tree", "wood", "vegetation", "canopy", "biomass"],
+      "charities": [
+        {
+          "name": "Michigan Nature Association",
+          "url": "https://www.michigannature.org",
+          "description": "Protecting Michigan's natural areas and forests"
+        },
+        {
+          "name": "The Nature Conservancy Michigan",
+          "url": "https://www.nature.org/michigan",
+          "description": "Forest conservation and restoration"
+        }
+      ]
+    },
+    "wildlife": {
+      "keywords": ["wildlife", "animal", "bird", "species", "habitat", "conservation"],
+      "charities": [
+        {
+          "name": "Michigan Audubon",
+          "url": "https://www.michiganaudubon.org",
+          "description": "Bird and wildlife conservation"
+        },
+        {
+          "name": "Michigan Nature Association",
+          "url": "https://www.michigannature.org",
+          "description": "Wildlife habitat protection"
+        }
+      ]
+    },
+    "air": {
+      "keywords": ["air", "pollution", "quality", "emission", "aerosol", "atmosphere"],
+      "charities": [
+        {
+          "name": "Michigan Environmental Council",
+          "url": "https://www.environmentalcouncil.org",
+          "description": "Air quality protection and environmental health"
+        },
+        {
+          "name": "American Lung Association Michigan",
+          "url": "https://www.lung.org/michigan",
+          "description": "Clean air advocacy and lung health"
+        }
+      ]
+    },
+    "environmental": {
+      "keywords": ["environmental", "monitoring", "data", "analysis", "geospatial"],
+      "charities": [
+        {
+          "name": "Michigan Environmental Council",
+          "url": "https://www.environmentalcouncil.org",
+          "description": "Environmental protection in Michigan"
+        },
+        {
+          "name": "The Nature Conservancy Michigan",
+          "url": "https://www.nature.org/michigan",
+          "description": "Conservation and environmental protection"
+        }
+      ]
+    }
+  },
+  "michigan_bounds": {
+    "west": -90,
+    "south": 41,
+    "east": -82,
+    "north": 48,
+    "description": "Michigan state bounding box for coordinate validation"
+  },
+  "output_settings": {
+    "include_metadata": true,
+    "include_insights": true,
+    "include_concerns": true,
+    "generate_shareable_urls": true,
+    "timestamp_format": "iso"
+  }
+}
+
